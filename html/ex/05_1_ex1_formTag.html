@@ -11,22 +11,71 @@
 
     -->
     <form action="">
+        <fieldset>
+            <legend>기본사항</legend>
+            <label for="id">ID : </label>
+            <input type="text" name="id" id="id" maxlength="5" placeholder="요기는 아이디">
+            <br>
+            <label for="PW">PW : </label>
+            <input type="password" name="pw" id="pw" required>
+            <br>
+            <label for="txta">기타 : </label>
+            <textarea name="txta" id="txta" cols="10" rows="5"></textarea> </textarea>
+            <br>
+            <label for="poketmon">poketmon : </label>
+            <select name="poketmon" id="poketmon">
+                <option value="0">피츄</option>
+                <option value="1">피카츄</option>
+                <option value="2">라이츄</option>
+            </select>
+        </fieldset>
+        <br>
+        <label for="email">email : </label>
+        <input type="email" name="email" id="email" readonly value="셋팅값">
+        <br>
+        <label for="number">number : </label>
+        <input type="number" id="number" min="0" max="10">
+        <br>
+        <label for="date">date : </label>
+        <input type="date" id="date">
+        
+        <br>
+        <input type="checkbox" name="food" id="chk-1">
+        <label for="chk-1">제육볶음</label>
+        <input type="checkbox" name="food" id="chk-2">
+        <label for="chk-2">돼지국밥</label>
+        <input type="checkbox" name="food" id="chk-3">
+        <label for="chk-3">순두부찌개</label>
+
+        <br>
+        <label for="zz">짬뽕</label>
+        <input type="radio" id="zz" name="foods">
+        <label for="ta">탕수육</label>
+        <input type="radio" id="ta" name="foods">
+
+        <br>
+        <input type="submit" value="전송">
+        <input type="reset">
+
+        <br>
+        <br>
+        <button type="submit">전송</button>
+        <button type="reset">초기화</button>
+        <button type="button">버튼</button>
+
+        <br>
+        <input type="hidden" value="히든" name="jiddne"
+
+
+
+
+
+
+
         <!-- input 태그: 다양한 방법으로 데이터를 받기위한 태그 -->
         <!-- 속성-->
         <!-- text : 일반적인 텍스트를 입력할 수 있는 값-->
-        <label for="input-id">ID</label>
-        <input
-             type="text"
-             id="input-id"
-             required
-            placedholder="ID를 입력하세요.">
-        <br>
-        <input type="email" readonly value="이메일이다.">
-        <br>      
-        <label for="input-password">PW</label>
-        <!-- type="password" : 패스워드를 입력하고 형식 체크-->
-        <input type="password" id="password" required>
-        <br>
+        
         <!-- type="email" : 이메일를 입력하고 형식 체크-->
         <input type="email">
         <br><br>
