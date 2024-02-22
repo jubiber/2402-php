@@ -1,0 +1,10 @@
+.auto {
+    /* 원본 크기를 유지 (default) */
+    background-size: auto;
+}
+body{
+    background-image: url('../img/docker.png');
+    background-repeat: no-repeat;
+    background-position: top 10px right 5px;
+    background-attachment: fixed;
+}
