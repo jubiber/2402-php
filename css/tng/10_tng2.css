@@ -16,7 +16,7 @@ legend {
     font-weight: 900;
     color: magenta;
 }
-.require::before {
+.require::before { 
     content: '*';
     color: red;
 }
@@ -50,12 +50,7 @@ button:hover + .chk-content {
 
 
 
-
-
-
-
-
-legend {
+legend { 
     color: rgb(255, 20, 235);
     font-size: 2em;
     font-weight: 550;
