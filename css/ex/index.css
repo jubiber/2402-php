@@ -14,7 +14,7 @@
 }
 
 .container {
-    display: grid;
+    /* display: grid; */
     
 }
 h1 {
@@ -95,6 +95,12 @@ input[type="search"] {
     text-align: center;
     line-height: 40px;
 } 
+.main_card_list {
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
 .card {
     background-color: white;
     padding: 1rem;
@@ -105,12 +111,7 @@ input[type="search"] {
     background-size: cover;
     margin-bottom: 1rem;
 }
-.main_card_list {
-    padding: 1rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1rem;
-}
+
 .card_info > p {
     font-size: 1,2rem;
     font-weight: 900;
