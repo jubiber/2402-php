@@ -85,7 +85,7 @@ SELECT * FROM employees WHERE first_name LIKE('___Ge_');
 SELECT *
 FROM employees
 WHERE
-	hire_date BETWEEN 1900101 AND 19951231
+	hire_date BETWEEN 19000101 AND 19951231
   AND gender = 'F'
 ORDER BY gender, last_name, first_name;
 
