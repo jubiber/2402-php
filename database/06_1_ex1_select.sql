@@ -90,9 +90,58 @@ WHERE
 ORDER BY gender, last_name, first_name;
 
 -- DISTINCT 키워드 : 검색 결과에서 중복되는 레코드 없이 조회
-
 SELECT emp_no FROM salaries WHERE emp_no = 10001;
 SELECT DISTINCT emp_no  FROM salaries WHERE emp_no = 10001;
+
+-- GROUP BY 절, HAVING 절 : 그룹으로 묶어서 조회
+
+-- GROUP BY [그룹으로 묶음 컬럼] HAVING [그룹을 묶을때의 조건: 집계함수 조건]
+SELECT 
+	gender
+	,COUNT(gender)
+FROM employees
+GROUP BY gender;
+-- 현재 재직중인 직원의 직책별 사원수 조회
+SELECT 
+	title
+	,COUNT(title)
+FROM titles
+WHERE to_date >= 20240305
+GROUP BY title HAVING title LIKE('%Engineer%')
+;
+-- 각 사원의 최고연봉 중 80000 이상을 조회
+SELECT 
+	emp_no
+	,MAX(salary)
+FROM salaries
+GROUP BY emp_no HAVING MAX(salary) >= 80000;
+
+-- AS : 컬럼에 별칭 부여
+SELECT
+	emp_no
+	-- AS 생략 가능 (max_sal 앞에) --
+	,MAX(salary)  max_sal
+FROM salaries   
+GROUP BY emp_no HAVING MAX(salary) >= 80000;
+
+-- LIMIT, OFFSET : 출력하는 데이터의 개수 제한
+SELECT * 
+FROM employees
+-- OFFSET 숫자 앞에 숫자만큼을 제외하고 시작을 알림 
+-- OFFST 생략 가능하나 숫자가 LIMIT 앞에 쓰인다.
+LIMIT 5 OFFSET 10;
+
+SELECT *
+FROM employees
+LIMIT 10, 5;
+
+-- 가장 높은 연봉을 받는 사원 번호 조회
+SELECT emp_no, MAX(salary) max_sal FROM salaries
+GROUP BY emp_no
+ORDER BY MAX_sal DESC;
+
+
+
 
 
 
