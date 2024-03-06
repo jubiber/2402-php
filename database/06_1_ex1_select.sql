@@ -138,7 +138,20 @@ LIMIT 10, 5;
 -- 가장 높은 연봉을 받는 사원 번호 조회
 SELECT emp_no, MAX(salary) max_sal FROM salaries
 GROUP BY emp_no
-ORDER BY MAX_sal DESC;
+ORDER BY max_sal DESC
+LIMIT 1;
+
+-- 재직중인 사원 중 급여 상위 5위까지 조회
+SELECT emp_no, salary
+FROM salaries
+WHERE to_date >= 20240305
+ORDER BY salary DESC
+LIMIT 5;information_schematestperformance_schema
+
+
+
+
+
 
 
 
