@@ -185,7 +185,7 @@ SELECT *
 FROM employees
 WHERE
 	emp_no IN (10001, 10002, 10006)
-	);
+;
 		
 SELECT
 	emp_no
