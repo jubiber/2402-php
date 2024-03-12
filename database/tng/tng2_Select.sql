@@ -109,7 +109,6 @@ FROM employees emp
 
 -- 7. 현재 직책이 "Staff"인 사원의 전체 평균 월급를 출력해 주세요.
 SELECT
-	
 FROM salaries
 WHERE avg_sal
 ORDER BY
@@ -200,7 +199,7 @@ FROM employees emp
 	JOIN titles tit
 		ON emp.emp_no = tit.emp_no
 		LEFT JOIN titles tit2
-			ON emp.emp_no)NO = tit2.emp_no
+			ON (emp.emp_no)NO = tit2.emp_no
 			AND tit.to_date >= now()
 			AND emp.gender = 'F'
 GROUP BY tit.title

@@ -107,7 +107,8 @@ INSERT INTO tmp *
 SELECT 
 FROM (
 	INSERT INTO emp_no, birth_date
-	FROM employees;
+	FROM employees)
+	;
 
 
 INSERT INTO titles (
@@ -115,7 +116,7 @@ INSERT INTO titles (
 	,title
 	,from_date
 	,to_date
-)
+);
 
 VALUES (
 	(SELECT MAX(emp.emp_no) +1 FROM employees emp)
