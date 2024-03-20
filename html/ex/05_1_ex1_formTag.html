@@ -10,84 +10,35 @@
         form 태그 : 정보를 제출하기 위한 태그
 
     -->
-    <form action="">
-        <fieldset>
-            <legend>기본사항</legend>
-            <label for="id">ID : </label>
-            <input type="text" name="id" id="id" maxlength="5" placeholder="요기는 아이디">
+    <form action="./04_6_ex1_aTag.html">
+        <!--
+            <label>태그
+                입력받는 필드를 설명할 때 사용하는 태그
+                <input>태그의 id속성값과 <label>태그의 for속성값이 동일하게 하여 연결 가능
+
+                    input 태그 : 다양한 방법으로 데이터를 받기위한 태
+        -->
+        <label for="input-id">ID</label>
+        <!-- type="text" : 일반적인 텍스트를 입력할 수 있는 값 -->
+        <input
+            type="text"
+            id="input-id"
+            required
+            placeholder="ID를 입력하세요.">
             <br>
-            <label for="PW">PW : </label>
-            <input type="password" name="pw" id="pw" required>
+            <input type="email" readonly value="이메일이다.">
             <br>
-            <label for="txta">기타 : </label>
-            <textarea name="txta" id="txta" cols="10" rows="5"></textarea> </textarea>
+            <label for="input type=password" : 패스워드를 입력할 수 있는 값 -->
             <br>
-            <label for="poketmon">poketmon : </label>
-            <select name="poketmon" id="poketmon">
-                <option value="0">피츄</option>
-                <option value="1">피카츄</option>
-                <option value="2">라이츄</option>
-            </select>
-        </fieldset>
-        <br>
-        <label for="email">email : </label>
-        <input type="email" name="email" id="email" readonly value="셋팅값">
-        <br>
-        <label for="number">number : </label>
-        <input type="number" id="number" min="0" max="10">
-        <br>
-        <label for="date">date : </label>
-        <input type="date" id="date">
-        
-        <br>
-        <input type="checkbox" name="food" id="chk-1">
-        <label for="chk-1">제육볶음</label>
-        <input type="checkbox" name="food" id="chk-2">
-        <label for="chk-2">돼지국밥</label>
-        <input type="checkbox" name="food" id="chk-3">
-        <label for="chk-3">순두부찌개</label>
-
-        <br>
-        <label for="zz">짬뽕</label>
-        <input type="radio" id="zz" name="foods">
-        <label for="ta">탕수육</label>
-        <input type="radio" id="ta" name="foods">
-
-        <br>
-        <input type="submit" value="전송">
-        <input type="reset">
-
-        <br>
-        <br>
-        <button type="submit">전송</button>
-        <button type="reset">초기화</button>
-        <button type="button">버튼</button>
-
-        <br>
-        <input type="hidden" value="히든" name="jiddne"
-
-
-
-
-
-
-
-        <!-- input 태그: 다양한 방법으로 데이터를 받기위한 태그 -->
-        <!-- 속성-->
-        <!-- text : 일반적인 텍스트를 입력할 수 있는 값-->
-        
-        <!-- type="email" : 이메일를 입력하고 형식 체크-->
-        <input type="email">
-        <br><br>
-        <input type="checkbox" name="food" id="chk-1">
-        <label for="chk-1">돈까스</label><br>
-        <input type="checkbox" name="food" id="chk-2">
-        <label for="chk-2">짜장면</label><br>
+            <!-- type="email" : 이메일을 입력하고 형식 체크 -->
+            <!-- <input type="email">
+            <br><br>
+            <input type="checkbox" name="food" id="chk-1">
+            <label for="chk-1">돈까스</label><br>
+            <label for="checkbox" namd="food" id="chk-2">
+              <label for="chk-2">짜장면</label><br>
         <input type="checkbox" name="food" id="chk-3">
         <label for="chk-3">샌드위치</label>
-
-
-
         <br><br>
         <input type="radio" name="fruit" id="radio-1">
         <label for="radio-1">사과</label><br>
@@ -98,31 +49,45 @@
         <br>
         <input type="range" min="0" max="10">
         <br>
-        <input type="number" min="0" max="10">
+        <input type="number" min="0" max="10"> -->
 
-        <input type="button" value="인풋 버튼">
+        <!-- input button은 요즘은 잘 안쓴다. -->
+        <!-- <input type="button" value="인풋 버튼">
         <br>
-        <input type="submit" value="인풋 서브밋">
+        <input type="submit" calue="인풋 서브밋">
         <br>
         <input type="reset" value="인풋 reset">
-        <br>
-        <textarea cols="30" rows="20"></textarea>
+        <br> -->
         <!-- <br>
-        <select name="poketmon" id="poketmon">
-            <option value="0">피츄</option>
-            <option value="1">피카츄</option>
-            <option value="2">라이츄</option>
-        </select> -->
+        <textarea cols="30" rows="10"</textarea>
         <br>
-        <fieldset>
-            <legend>정보 입력</legend>
-            <label for="id">ID :</label>
-            <input type="text">
-        </fieldset>
+         <textarea cols="30" rows="10"></textarea>
+        <br>
+        <select name="poketmon" id="poketmon">
+            <option value="0">피카츄</option>
+            <option value="1">라이츄</option>
+            <option value="2">파이리</option>
+        </select>
+    -->
+    <br>
+    <fieldset>
+        <legend>정보 입력</legend>
+        <label for="id">ID : </label>
+        <input type="text">
+         </fieldset>
         <br>
         <button type="button">button</button>
         <button type="submit">submit</button>
         <button type="reset">reset</button>
-    </form>  
+    </form>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
