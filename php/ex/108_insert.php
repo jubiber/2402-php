@@ -33,7 +33,7 @@ $sql =   "INSERT INTO employees (
     //comit되기 전으로 돌려줌. rollback을 써줌.
     // ->가져오겠다는  표시
     $conn->beginTransaction();
-    $stmt = $conn->prepare($sql); // DB 질의 준비
+    $stmt = $conn->prepare($sql); // DB 질의 준비(물어본다.)
     $result = $stmt->execute($arr_prepare); // DB 질의 실행
     $result_cnt = $stmt->rowCount(); // 영향받은 레코드 수 획득
     //예외 처리 :1이 아니면 다 에러
