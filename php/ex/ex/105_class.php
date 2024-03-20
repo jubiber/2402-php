@@ -14,7 +14,7 @@ class Whale {
 
     private $name;
 
-    // 생성자(메소드) = constract
+    // 생성자(메소드) = construct
     //$this 접근지시자는 private의 $name을 의미함.
     public function __construct($name) {
         $this->name = $name;

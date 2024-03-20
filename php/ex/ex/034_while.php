@@ -51,12 +51,12 @@ while($num < 10) {
 }
 
 $dan = 2;
-$multi_ num = 1;
+$multi_num = 1;
 while($dan < 10) {
     $multi_num = 1;
     echo $dan. "단\n";
     while($multi_num < 10) {
-        echo $dan." X " .$multi_num." = ".($daam * $nulti_num)."\n";
+        echo $dan." X " .$multi_num." = ".($dan * $multi_num)."\n";
         $multi_num++;
     }
     $dan++;

@@ -16,11 +16,11 @@ $conn = db_conn(); //PDO객체 리턴 함수 호출
 
 
 //쿼리작성
-//placehoder 셋팅이 없는 경우
+//placeholder 셋팅이 없는 경우
 //+주석처리 : ctrl + /
 // $sql = 
-//     " SELECT * FROM mployees LIMIT 5 ";
-//  //statment의 약자 stmt  (에 저장 하고 패치작업 진행)
+//     " SELECT * FROM employees LIMIT 5 ";
+//  //statement의 약자 stmt  (에 저장 하고 패치작업 진행)
 // $stmt = $conn->query($sql); // 쿼리 준비 + 실행
 // $result = $stmt->fetchAll(); // 질의 결과 패치
 
@@ -28,7 +28,7 @@ $conn = db_conn(); //PDO객체 리턴 함수 호출
 // : limit 하여 변수명 지정.
 //offset 그리고 prepare에 해주면 연동됨.
 //offset에 오타를 주면 대응되는 값이 수가안맞으므로 에러가 뜸.
-    $sql =  "SELECT * FROM employees LIMIT :limit OFFSET :offset ";
+    $sql =  " SELECT * FROM employees LIMIT :limit OFFSET :offset ";
     
     $arr_prepare = [
         "limit" => $limit

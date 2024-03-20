@@ -45,7 +45,7 @@ echo $숫자1;
     echo MENU;
 
     // 스왑
-    $swqp1 = '곤드레밥';
+    $swap1 = '곤드레밥';
     $swap2 = '자장면';
     $tmp = "";
 
