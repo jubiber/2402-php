@@ -28,10 +28,11 @@ $sql =   "INSERT INTO employees (
         ,"last_name" => "hong"
         ,"gender" => "M"
     ];
-    // transaction 시작
-    // 복수처리 -> 모든게 성공하면 commit작업 하고 하나라도 실패하면
-    //comit되기 전으로 돌려줌. rollback을 써줌.
+    // transaction(거래,매매) 시작
+    // 복수처리 -> 모든게 성공하면 commit(저지르다)작업 하고 하나라도 실패하면
+    //commit되기 전으로 돌려줌. rollback(역행,후퇴)을 써줌.
     // ->가져오겠다는  표시
+    //statement : 성명
     $conn->beginTransaction();
     $stmt = $conn->prepare($sql); // DB 질의 준비(물어본다.)
     $result = $stmt->execute($arr_prepare); // DB 질의 실행
@@ -52,6 +53,7 @@ $sql =   "INSERT INTO employees (
 } finally {
     $conn = null;
 } 
+
 
 
 

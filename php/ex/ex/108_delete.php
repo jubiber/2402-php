@@ -11,8 +11,10 @@ try {
     ];
 
     // 트랜잭션 시작
+    //이 부분부터는 인지하고 넘어가야함.
     $conn->beginTransaction(); //트랜잭션 시작
     $stmt = $conn->prepare($sql); // DB 질의 준비
+    //데이터를 연상배열로 가져와서 쓸수 있음.
     $stmt->execute($arr_prepare); // DB 질의 실행
 
     $conn->commit(); // commit
