@@ -21,3 +21,6 @@ foreach($arr as $val) {
     echo $val."입니다.\n";
 }
 print_r($arr);
+
+//foreach -> while.
+//if문 중요
