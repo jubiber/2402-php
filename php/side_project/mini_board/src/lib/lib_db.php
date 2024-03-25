@@ -1,14 +1,6 @@
 <?php
 
 
-
-
-
-
-
-
-
-
 function my_db_conn() {
     // 설정 정보
     $option = [
@@ -25,11 +17,11 @@ function my_db_conn() {
 function db_select_boards_cnt(&$conn) {
     $sql =
     " SELECT "
-    ."COUNT(no) as cnt"
+    ." COUNT(no) as cnt "
     ." FROM "
     ." boards "
     ." WHERE "
-    ." deleted_at IS NULL"
+    ." deleted_at IS NULL "
     ;
 
 //Query 실행
@@ -60,7 +52,7 @@ function db_Select_boards_paging(&$conn, &$array_param) {
     //Query 실행
     $stmt =$conn->prepare($sql);
     $stmt->execute($array_param);
-    $result =$stmt->fetchAll();
+    $result = $stmt->fetchAll();
 
     // 리턴
     return $result;
