@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수정 페이지</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+    .grid-container {
+      display: grid;
+      grid-template-columns: auto auto;
+      background-color: rgb(187, 187, 187);
+      padding: 10px;
+    }
+    .grid-item {
+      background-color: rgb(255, 255, 255);
+      border: 1px solid rgb(172, 172, 172);
+      padding: 10px;
+      font-size: 12px;
+    }
+    </style>
+</head>
+<body>
+  
+ <h1>TO DO LIST</h1>
+
+<main>
+
+      <form action="./detail.html" method="">
+        <div class="grid-container">
+          <div class="grid-item">What is the best important? :
+            개인 TO DD LIST 만들기.
+          </div>
+          <div class="grid-item">Date : 2024-03-27</div>
+          <div class="grid-item">To Do
+            <div class="line-item">
+              <div class="line-title">1</div>
+              <div class="line-content">TO DO LIST 2p까지 만들기</div>
+            </div>
+            <div class="line-item">
+              <div class="line-title">2</div>
+              <div class="line-content">계란 구매</div>
+            </div>  
+            <div class="line-item">
+              <div class="line-title">3</div>
+              <div class="line-content">수정->삭제페이지 복습하기(모르는 거 묻)</div>
+            </div>  
+            <div class="line-item">
+              <div class="line-title">4</div>
+              <div class="line-content">to do list(실제 pi) 도안 만들기</div>
+            </div>
+            <div class="line-item">
+              <div class="line-title">4</div>
+              <div class="line-content">php 설치</div>
+            </div>
+          </div>
+          <div class="grid-item">
+            <div class="famous">오늘의 명언</div>
+            "순간들을 소중히 여기다 보면, 긴 세월은 저절로 흘러간다."
+            If we take care of the moments, the years will take care of themselves.
+          </div>
+          <div class="grid-item">feedback 쿼리 직접 짜면서 복습 하 것.
+            수업 완벽no, 어떤 역할 하는지만o, 넘어가기.
+          </div>
+          <div class="grid-item">memo
+            Notion 정리
+            설계서 보면서 직접 쿼리 짜보기
+          </div>
+        </div> 
+        <div class="main-bottom">
+          <button type="submit" class="a-button small-button">완료</button>
+           <a href="./detail.html" class="a-button small-button">취소</a>
+        </div>
+      </form>
+    </main>
+</body>
+</html>

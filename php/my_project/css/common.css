@@ -80,7 +80,7 @@ a {
 main {
     background-color: #f1f1f1;
     width: 600px;
-    height: 450px;
+    height: 500px;
     margin: 0 auto;
     padding: 15px 30px;
     border-radius: 10px;
@@ -124,15 +124,16 @@ main > [class^=main-] {
     margin: 5px 0;
 }
 .line-title {
-    background-color: #b6b6b6;
+    background-color: #8f8f8f;
     padding: 10px 5px;
     border-radius: 5px 0 0 5px;
-    color: #fff;
+    color: #ffffff;
     font-weight: 900;
+    text-align: center;
 }
 .line-content { 
-    background-color: #fff;
-    width:210px;
+    background-color: #ebebeb;
+    width:300px;
     padding: 10px 5px;
     border-radius: 0 5px 5px 0;
 }

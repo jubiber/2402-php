@@ -72,7 +72,9 @@ if (REQUEST_METHOD === "POST") {
     // 리스트 페이지로 이동
     header("Location: list.php");
     exit;
-    { catch (\Throwable $e) {
+   
+  }
+     catch (\Throwable $e) {
         if(!empty($conn)) {
             $conn->rollBack();
         }

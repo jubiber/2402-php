@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>작성 페이지</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <style>
+    .blue {
+      color: blue;
+    }
+    .grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    background-color: rgb(214, 214, 214);
+    padding: 10px;
+    }
+    .grid-item {
+      background-color: rgb(245, 245, 245);
+      border: 1px solid #8f8f8f;
+      padding: 50px 20px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    </style>
+</head>
+<body>
+    
+    <header>
+        <h1 class="blue">Month</h1>
+    </header>
+    <main>
+      <form action="./index.html" method="post">
+        <div class="Year">Year</div>
+        <div class="grid-container">
+          <div class="grid-item">January</div>
+          <div class="grid-item">Febuary</div>
+          <div class="grid-item">March</div>
+          <div class="grid-item">April</div>
+          <div class="grid-item">May</div>
+          <div class="grid-item">Jun</div>
+          <div class="grid-item">July</div>
+          <div class="grid-item">August</div>
+          <div class="grid-item">September</div>
+          <div class="grid-item">October</div>
+          <div class="grid-item">November</div>
+          <div class="grid-item">December</div>
+        </div>
+        
+        <div class="main-bottom">
+          <button type="submit" class="a-button small-button">이전</button>
+           <button type="submit"><a href="./index.html" class="a-button small-button">다음</a></button>
+        </div>
+      </form>
+    </main>
+</body>
+</html>
