@@ -1,6 +1,8 @@
 <?php
 
-// config -> 환경설정
+// config -> 설정이나 프로그램의 실행 일부 등을 저장해둔 파일임.
+
+
 
 //마리아디비 관련
  define("MARIADB_HOST", "127.0.0.1");   //DB HOST

@@ -19,8 +19,9 @@ WHERE to_date >= NOW();
 
 
 -- IFNULL(수식1, 수식2) :
--- 수식1이 NULL이 아니면 값1을 반환
--- 수식1이 NULL이면 값2를 반환
+-- 수식1이 NULL이 아니면 수식2을 반환
+-- 수식1이 NULL이면 수식1을 반환
+SELECT IFNULL('11','22');
 SELECT IFNULL(NULL,'22');
 
 SELECT 
@@ -37,13 +38,13 @@ SELECT NULLIF(1, 1), NULLIF(1, 2);
 -- CASE ~ WHEN ~ ELSE ~ END : 다중분기를 위해 사용
 SELECT
 	gender
-	,CASE	gender
+	,CASE gender
 		WHEN 'M' THEN '남자'
 		WHEN 'F' THEN '여자'
 		WHEN ''  THEN '공백'
 		ELSE '무성'
-	END 	ko_gender
-FROM 	employees;
+	END ko_gender
+FROM employees;
 
 -- 문자열 함수
 -- 문자열 연결

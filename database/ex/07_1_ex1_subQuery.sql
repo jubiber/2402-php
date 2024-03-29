@@ -1,9 +1,3 @@
-SELECT 
-	birth_date
-	,DATE_FORMAT(birth_date, '%y-%m-%d')
-FROM employees
-WHERE DATE_FORMAT(birth_date, '%m') = '08';
-
 -- SUB QUERY
 -- 쿼리 안에 또다른 쿼리가 들어있는 쿼리
 
@@ -16,7 +10,7 @@ WHERE
 		SELECT emp_no
 		FROM dept_manager
 		WHERE dept_no = 'd001'
-		AND to_date >= NOW
+		AND to_date >= NOW()
 	);
 	
 	
@@ -29,29 +23,18 @@ WHERE
 		FROM dept_manager
 		WHERE to_date = NOW()
 	);
-
-SELECT *
-FROM employees
-WHERE
-	emp_no IN (10001, 10002, 10006)
-	);
-		
-SELECT
-	emp_no
-FROM dept_manager
-WHERE
-	dept_no = 'd001'
-	AND to_date >= NOW();
 	
 	
 -- d001 부서에 속했던 적이 있는 사원의 사번과 풀네임을 출력
-SELECT emp_no, CONCAT_WS('', first_name, last_name) full_name
+SELECT 
+	emp_no
+	,CONCAT_WS('', first_name, last_name) full_name
 FROM employees
 WHERE 
 	emp_no IN (
-	SELECT emp_no
-	FROM dept_emp
-	WHERE dept_no = 'd001' 
+			SELECT emp_no
+			FROM dept_emp
+			WHERE dept_no = 'd001' 
 	)
 ;
 
@@ -60,10 +43,10 @@ SELECT emp_no, birth_date
 FROM employees
 WHERE
 	emp_no IN (
-	SELECT emp_no
-	FROM titles
-	WHERE title = 'Senior Engineer'
-	AND to_date >= NOW()
+			SELECT emp_no
+			FROM titles
+			WHERE title = 'Senior Engineer'
+				AND to_date >= NOW()
 	)
 ;
 
@@ -84,47 +67,38 @@ WHERE (dpe.dept_no, dpe.emp_no) IN (
 SELECT
 	employees.emp_no
 	,(
-		SELECT AVG(salaries.salary)
-		FROM salaries
-		WHERE salaries.emp_no = employees.emp_no
-	
+			SELECT AVG(salaries.salary)
+			FROM salaries
+			WHERE salaries.emp_no = employees.emp_no\
 	) avg_sal
 	,employees.first_name
 FROM employees;
 
 -- FROM 절에서 사용되는 서브쿼리
--- 정식테이블 아니고 이름없는 임시 테이블임
-SELECT tmp *
-FROM (
+SELECT tmp.*
+FORM (
 	SELECT emp_no, birth_date
 	FROM employees
 ) tmp
 ;
 
-
 -- INSERT 문에서 서브쿼리 사용
-INSERT INTO tmp *
-SELECT 
-FROM (
-	INSERT INTO emp_no, birth_date
-	FROM employees)
-	;
-
-
-INSERT INTO titles (
-	emp_no
-	,title
-	,from_date
-	,to_date
-);
-
+INSERT INTO 
+	employees (
+		emp_no
+		,birth_date
+		,first_name
+		,last_name
+		,gender
+		,hire_date
+)
 VALUES (
 	(SELECT MAX(emp.emp_no) +1 FROM employees emp)
 	,20240303
 	,'test'
 	,'ttt'
 	,'M'
-	,20240306
+	,2020306
 );
 
 -- UPDATE 문에서 사용
