@@ -22,7 +22,6 @@ main {
 .line-item {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    text-align: center;
     font-size: 1.8rem;
     margin: 5px 0;
 }
@@ -33,11 +32,22 @@ main {
     border-radius: 10px 0 0 10px;
     color: #000000;
     font-weight: 900;
+    text-align: center;
 }
 .line-content {
     background-color: #fff;
     padding: 10px 5px;
     border-radius: 0 10px 10px 0;
+    text-align: center;
+}
+#title {
+    width: 93%;
+}
+.line-content2 {
+    background-color: #fff;
+    padding: 10px 5px;
+    border-radius: 0 10px 10px 0;
+    text-align: center;
 }
 
 .line-title-textarea {
