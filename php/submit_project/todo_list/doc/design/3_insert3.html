@@ -4,14 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href=".css">
+    <link rel="stylesheet" href="./css/3insert.css">
 </head>
 <body>
     <header>
         <h1>Mini Board</h1>
     </header>
+
     <main>
-        
+        <!-- 
+        1. form > label > input 같이 간다.
+        2. method (form 태그의 한 종류)
+            1) method -> form data가 서버로 제출될 때 사용되는 HTTP 메소드를 명시함.
+            2) method 속성은 속성값으로 GET POST 둘 중 하나 select.
+            3-1) GET:  서버로부터 정보를 요청할 때 사용되는 HTTP 메서드임.
+            3-2) POST: 정보를 생성/업데이트하기 위해 서버에 데이터를 보내는 HTTP 메서드임.  -->
+     <form action="" method="">
+        <div class="main-middle">
+            <div class="line-item">
+                
+                <label class="line-title" for="title">
+                    <div>제목</div>              
+                </label>
+                <div class="line-content">
+                    <!-- id? 문서 내에서 고유하다.
+                    name? 서버로 데이터를 제출할 때 사용됨 -->
+                    <input type="text" name="title" id="title" >     
+                </div>
+            </div>
+            <div class="line-item">
+                <label class="line-title" for="content">
+                    <div class="line-title-textarea">내용</div>                 
+                </label>   
+                <div class="line-content">
+                    <!--
+                    1.textarea(form): 여러줄을 입력하는 텍스트 영역을 만드는 태그
+                    2.속성 >
+                     1) cols(가로 너비를 문자 단위로 지정)
+                     2) rows(세로 길이를 줄 단위로 지정) -->
+                    <textarea name="content" id="content" rows="10" cols="50"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="main-bottom">
+            <button type="submit" class="a-button small-button">작성</button>
+            <a href="" class="a-button small-button">취소</a>
+        </div>
+     </form>
     </main>
 </body>
 </html>
