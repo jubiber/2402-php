@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 h1 {
     background-color: gainsboro;
     text-align: center;
@@ -15,15 +20,15 @@ main {
     background-color: #f0f0f0;
     width: 600px;
     margin: 0 auto;
-    padding: 10px 30px;
+    padding: 25px 30px;
     border-radius: 10px;
 }
 .item {
     display: grid;
     grid-template-columns: 1fr 2fr;
     text-align: center;
-    font-size: 1.4rem;
-    padding: 10px;
+    font-size: 1.5rem;
+    padding: 2px;
     margin: 1px 0;
 }
 
@@ -37,7 +42,7 @@ button {
 
 a {
     text-decoration: none;
-    color: #0835ff;
+    color:rgb(255, 116, 2);
 }
 .a-button {
     color: #fff;

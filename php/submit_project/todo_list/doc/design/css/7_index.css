@@ -5,14 +5,17 @@
 }
 h1 {
     background-color: gainsboro;
-    color:rgb(255, 116, 2);
     text-align: center;
     width: 600px;
+    color:rgb(255, 116, 2);
     line-height: 95px;
     margin: 0 auto;
     padding: 0 30px;
     border-radius: 10px;
     font-size: 60px;
+}
+.main-top {
+    text-align: right;
 }
 main [class^="main-"] {
     margin: 20px 0;
@@ -21,62 +24,35 @@ main {
     background-color: #f0f0f0;
     width: 600px;
     margin: 0 auto;
-    padding: 50px 30px;
-    border-radius: 10px;
+    padding: 10px 30px;
+}
+.list-head {
+    font-weight: 600;
+    background-color: #dddddd;
+    border-radius: 30px;
+    color: #000000;
+}
+.item {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 10px;
+    background-color: #fff;
+    margin: 5px 0;
 }
 .line-item {
     display: grid;
     grid-template-columns: 1fr 2fr;
     font-size: 1.5rem;
     margin: 5px 0;
-}
-
-.line-title {
-    background-color: #cfcfcf;
-    padding: 20px 5px;
-    border-radius: 10px 0 0 10px;
-    color: #000000;
-    font-weight: 900;
     text-align: center;
 }
-.line-content {
-    background-color: #fff;
-    padding: 10px 5px;
-    border-radius: 0 10px 10px 0;
-    text-align: center;
-}
-#title {
-    width: 93%;
-}
-.line-content2 {
-    background-color: #fff;
-    padding: 10px 5px;
-    border-radius: 0 10px 10px 0;
-    text-align: center;
-}
-
-.line-title-textarea {
-    padding-top: 35%;
-}
-.main-bottom {
-    text-align: center;
-}
-
-.center {
-    text-align: center;
-}
-
-button {
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    padding: 2px;
-}
-
 a {
     text-decoration: none;
     color: #000;
 }
+
 .a-button {
     color: #fff;
     font-size:1.5rem;
@@ -90,8 +66,11 @@ a {
     background-color: #6f91ff;
 }
 .small-button {
-    width: 120px;
+    width: 80px;
     height: 40px;
     line-height: 35px;
+    text-align: center;
+}
+.main-bottom {
     text-align: center;
 }

@@ -1,6 +1,11 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 h1 {
     background-color: gainsboro;
-    color:rgb(19, 2, 255);
+    color:rgb(255, 116, 2);
     text-align: center;
     width: 600px;
     line-height: 95px;
@@ -22,7 +27,7 @@ main {
 .line-item {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     margin: 5px 0;
 }
 .line-title {
@@ -68,7 +73,7 @@ button {
 
 a {
     text-decoration: none;
-    color: #0835ff;
+    color:rgb(255, 116, 2);
 }
 .a-button {
     color: #fff;
