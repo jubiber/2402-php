@@ -1,13 +1,14 @@
 <?php
 // 설정 정보
-require_once($_SERVER["DOCUMENT_ROOT"]."/config.php"); // 설정 파일 호출
+// 설정파일 호출하기!
+require_once($_SERVER["DOCUMENT_ROOT"]."/config.php"); 
 require_once(FILE_LIB_DB); // DB관련 라이브러리
 $list_cnt = 5; // 한 페이지 최대 표시 수
 $page_num = 1; // 페이지 번호 초기화 (기본적으로 1로 셋팅되도록 해줌)
 
 try {
     //DB Connect
-$conn = my_db_conn(); //connection 함수 호출
+    $conn = my_db_conn(); //connection 함수 호출
 
     // 파라미터에서 page 획득
     $page_num = isset($_GET["page"]) ? $_GET["page"] : $page_num; 
@@ -44,7 +45,7 @@ finally {
     if(!empty($conn)) {
         $conn = null;
     }
-}
+} 
 
 
 ?>

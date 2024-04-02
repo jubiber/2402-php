@@ -56,7 +56,7 @@ function db_insert_boards(&$conn, &$array_param) {
 }
 
 
-function db_Select_boards_paging(&$conn, &$array_param) {
+function db_select_boards_paging(&$conn, &$array_param) {
     $sql =
         " SELECT "	
         ." no "

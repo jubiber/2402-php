@@ -294,4 +294,73 @@ echo gettype($str8);
 $i = 1;
 // string(1) "3"과 bool(true) 출력
 var_dump($i, settype($i, "string"));
+
+//////////////////
+//240402 09:25
+
+//class_$this -> class 내 프로퍼티or 메소드에 접근 위해 사용
+class Whale {
+    private $name;
+
+    public function __construct($name) {
+        // '=' -> 오른쪽을 왼쪽에 담는다. (같다x)
+        $this->name = $name; //프로퍼티 $name에 생성자의 파라미터 $name을 저장
+        echo $this->name."생성\n";
+    }
+}
+
+// class? - 프로퍼티 - 메소드
+// class 클래스명 {
+//     public 프로퍼티명;
+
+//     public function 메소드명() {
+//         메소드 처리
+//     }
+// }
+
+//Cookie 생성 -> 쿠키명은 필수 파라미터
+// setcookie(쿠키명, 쿠키값, 쿠키폐기시간, 쿠키 적용 경로, 쿠키 적용 도메인);
+
+//ex
+// setcookie("test_cookie", "val_test", time() +10);
+
+//Cookie 확인 -> 슈퍼 글로벌 변수 $_COOKIE에서 확인
+// $_COOKIE[쿠키명];
+//ex
+// $test_cookie = $_COOKIE["test_cookie"];
+// echo $test_cookie;
+
+//삭제 -> 쿠키는 유저의 브라우저에 저장, 일반적인 삭제로는 제거 불가 -> 현재 이전시간으로 셋팅 -> 삭제
+// setcookie("test_cookie", "val_test", time() + 3600);
+
+// setcookie();
+
+//Class 'Extends 클래스 상속'
+Class Parents {
+    public function print_p() {
+        echo "부모 클래스에서 출력\n";
+    }
+}
+class Child extends Parents {
+
+}
+
+$obj_child = new Child();
+$obj_child->print_p();
+
+// Overriding
+
+class Parents {
+    public function print_p() {
+     echo "부모 클래스에서 출력\n";
+    }
+}
+
+class Child extends Parents {
+    public function print_p() {
+        echo "자식 클래스에서 출력\n";
+    }
+}
+
+
 ?>
