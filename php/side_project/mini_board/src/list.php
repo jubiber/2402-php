@@ -18,11 +18,8 @@ try {
     // TODO : 나중에 추가
 
     // 페이지 관련 설정 셋팅
-    // TODO : 나중에 추가
     $max_page_num = ceil($result_board_cnt / $list_cnt); // 최대 페이지 수
-    $offset = $list_cnt * ($page_num -1); // OFFSET
-    //var_dump로 찍어봐바
-    //프젝은 디버깅이 안됨
+    $offset = $list_cnt * ($page_num - 1); // OFFSET
     $prev_page_num = ($page_num - 1) < 1 ? 1 : ($page_num -1); // 이전 버튼 페이지 번호
     $next_page_num = ($page_num + 1) > $max_page_num ? $max_page_num  : ($page_num + 1); // 다음 버튼 페이지 번호
 
@@ -30,12 +27,10 @@ try {
     // 게시글 리스트 조회
     $arr_param = [
         "list_cnt"  => $list_cnt
-        ,"offset"   => $offset// TODO : 나중에 값 변경필요
+        ,"offset"   => $offset
     ];
     $result = db_select_boards_paging($conn, $arr_param);
 
-// 아규먼트 : 함수 호출할 때 넘겨주는 값
-// 파라미터 : 아규먼트를 저장할 공간
 } catch (\Throwable $e) {
     echo $e->getMessage();
     exit;
@@ -46,24 +41,20 @@ finally {
         $conn = null;
     }
 } 
-
-
 ?>
 
 
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>메인 페이지</title>
     <link rel="stylesheet" href="./css/common.css">
+    <title>메인 페이지</title>
 </head>
 <body>
     <!-- 헤더 호출 -->
-    <?php 
-    require_once(FILE_HEADER); ?>
+    <?php require_once(FILE_HEADER); ?>
     <main>
         <div class="main-top">
             <a href="./insert.php" class="a-button">글 작성</a>
@@ -79,7 +70,7 @@ finally {
             ?>
             <div class="item">
                 <div class="item-no"><?php echo $item["no"] ?></div>
-                <div class="item-title"><a href="./detail.php?no=<?php echo $item["no"] ?>&page=<?php echo $page_num?>"><?php echo $item["title"] ?></a></div>
+                <div class="item-title"><a href="./detail.php?no=<?php echo $item["no"] ?>&page=<?php echo $page_num ?>"><?php echo $item["title"] ?></a></div>
                 <div class="item-createdat"><?php echo $item["created_at"] ?></div>
             </div>
             <?php
