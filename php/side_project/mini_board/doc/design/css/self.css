@@ -8,7 +8,7 @@ header {
     text-align: center;
     padding: 10px;
     font-weight: 700;
-    color: rgb(135, 142, 60);
+    color: rgb(135, 142, 60);;
 }
 main {
     border: 1px solid rgb(255, 242, 208);
@@ -58,10 +58,22 @@ button:hover {
 .list-1 {
     display: grid;
     grid-template-columns: 1fr 1fr 2fr;
+    margin: 10px auto;
     padding: 10px;
-    margin: 5px auto;
     background-color: white;
     width: 550px;
+    text-align: center;
+}
+.list-2 {
+    border-radius: 10px;
+    grid-template-columns: 1fr 2fr;
+}
+.list-no {
+    background-color: #b16424;
+
+}
+textarea {
+    width: 98%;
 }
 .a {
     text-decoration-line: none;
@@ -81,6 +93,11 @@ a:visited {
 .clear {
     clear: both;
 }
+.button-3 {
+    text-align: center;
+    display: grid;
+    grid-template-columns:;
+}
 a.button {
     display: block;
     position: relative;
@@ -96,13 +113,40 @@ a.button {
     transition: all 0.2s ;
     background: rgb(209, 158, 81);
   }
- 
+ .small-button {
+    display: inline-block;
+ }
   .small-button:hover {
     background: #b16424;
   }
-  
 
-  
+/* insert */
+/* 제목 + 입력란 */
+.mix {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    width: 550px;
+    margin: 0 auto;
+}
+.title-1 {
+    text-align: center;
+    padding: 10px;
+    background-color: #b16424;
+    color:white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+.content-1 {
+    padding: 10px;
+    background-color: #FFF;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+input {
+    width: 350px;
+}
 
 
 
