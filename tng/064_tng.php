@@ -31,7 +31,7 @@ for($i=0; $i<6; $i++)
 //사용법은 print_r(array) 
 print_r($arr);
 
-// 강 관점
+// 박T
 // 방법 1(원초적 방법)
 $arr_pick = []; // 뽑은 값 저장용
 while(true) {

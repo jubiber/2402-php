@@ -1,6 +1,6 @@
 <?php 
 
-//강 풀
+// 박T
 $num = 5;
  for($i = 1; $i < $num; $i++) {
     for($z = 0; $z < $num - $i; $z++) {

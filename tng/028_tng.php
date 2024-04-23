@@ -38,7 +38,7 @@ foreach($array as $value){
     echo("$value \n");
 }
 
-//강사님 관점
+// 박T
 for($i = 0; $i < 5; $i++) {
     for($z = 0; $z <= $i; $z++){
         echo "*";
@@ -66,7 +66,7 @@ for($i = 0; $i < 5; $i++) {
     }
     echo"/n";
 }
-//강사님 관점
+// 박T
 $num = 5;
 for($i = 0; $i < $num; $i++) {
     $cnt_space = $num - $i;

@@ -1,98 +1,52 @@
+
+
 <?php
 
-
 function my_db_conn() {
-    // 설정 정보가 담겨있는 함수
+    // 설정 정보
     $option = [
-        PDO::ATTR_EMULATE_PREPARES       =>   FALSE
-        ,PDO::ATTR_ERRMODE               =>   PDO::ERRMODE_EXCEPTION  
-        ,PDO::ATTR_DEFAULT_FETCH_MODE    =>   PDO::FETCH_ASSOC
+        PDO::ATTR_EMULATE_PREPARES      => FALSE
+        ,PDO::ATTR_ERRMODE              => PDO::ERRMODE_EXCEPTION
+        ,PDO::ATTR_DEFAULT_FETCH_MODE   => PDO::FETCH_ASSOC
     ];
 
-    //리턴
+    // 리턴
     return new PDO(MARIADB_DSN, MARIADB_USER, MARIADB_PASSWORD, $option);
 }
 
-
 function db_select_boards_cnt(&$conn) {
+    // sql 작성
     $sql =
-    " SELECT "
-    ." COUNT(no) as cnt "
-    ." FROM "
-    ." boards "
-    ." WHERE "
-    ." deleted_at IS NULL "
-    ;
-
-//Query 실행
-$stmt =$conn->query($sql);
-$result =$stmt->fetchAll();
-
-// 리턴
-return (int) $result[0]["cnt"];
-
-}
-
-// Insert row to boards 게시판 테이블 레코드 작성처리
-function db_insert_boards(&$conn, &$array_param) {
-    // SQL
-    $sql = 
-        "INSERT INTO boards( "
-        ." title "
-        ." ,content "
-        ." ) "
-        ." VALUES( "
-        ." :title "
-        ." ,:content "
-        ." ) "
-        ;
-
-        // Query 실행
-        $stmt = $conn->prepare($sql);
-        $stmt->execute($array_param);
-
-        // 리턴
-        return $stmt->rowCount();
-}
-
-
-function db_Select_boards_paging(&$conn, &$array_param) {
-    $sql =
-        " SELECT "	
-        ." no "
-        ." ,title "
-        ." ,created_at "
+        " SELECT "
+        ." 	COUNT(no) as cnt "
         ." FROM "
-        ." boards "
+        ." 	boards "
         ." WHERE "
-        ." deleted_at IS NULL "
-        ." ORDER BY "
-        ." no DESC "
-        ." LIMIT :list_cnt OFFSET :offset "
+        ." 	deleted_at IS NULL "
     ;
 
-    //Query 실행
-    $stmt =$conn->prepare($sql);
-    $stmt->execute($array_param);
+    // Query 실행
+    $stmt = $conn->query($sql);
     $result = $stmt->fetchAll();
 
     // 리턴
-    return $result;
-
+    return (int)$result[0]["cnt"];
 }
 
-// pk로 게시글 정보 조회
-function db_select_boards_no(&$conn, &$array_param) {
+function db_select_boards_paging(&$conn, &$array_param) {
+    // sql 작성
     $sql =
         " SELECT "
-        ." no "
-        ." ,title "
-        ." ,content "
-        ." ,created_at "
-        ." FROM "
-        ." boards "
+        ." 	no "
+        ." 	,title "
+        ." 	,created_at "
+        ." FROM	 "
+        ." 	boards "
         ." WHERE "
-        ." no = :no "
+        ." 	deleted_at IS NULL "
+        ." ORDER BY	 "
+        ." 	no DESC "
+        ." LIMIT :list_cnt OFFSET :offset "
     ;
 
     // Query 실행
@@ -103,18 +57,63 @@ function db_select_boards_no(&$conn, &$array_param) {
     // 리턴
     return $result;
 }
- 
-// pK로 특정 게시글 삭제 처리
+
+// ■ Insert row to boards 게시판 테이블 레코드 작성처리
+function db_insert_boards(&$conn, &$array_param) {
+    // SQL
+    $sql =
+        " INSERT INTO boards( "
+        ."  title "
+        ."  ,content "
+        ." ) "
+        ." VALUES( "
+        ."  :title "
+        ."  ,:content "
+        ." ) "
+    ;
+
+    // Query 실행
+    $stmt = $conn->prepare($sql);
+    $stmt->execute($array_param);
+
+    // 리턴
+    return $stmt->rowCount();
+}
+
+// pk로 게시글 정보 조회
+function db_select_boards_no(&$conn, &$array_param) {
+    // SQL
+    $sql =
+        " SELECT "
+        ." 	no "
+        ." 	,title "
+        ." 	,content "
+        ." 	,created_at "
+        ." FROM "
+        ." 	boards "
+        ." WHERE "
+        ." 	no = :no "
+    ;
+
+    // Query 실행
+    $stmt = $conn->prepare($sql);
+    $stmt->execute($array_param);
+    $result = $stmt->fetchAll();
+    
+    // 리턴
+    return $result;
+}
+
+// pk로 특정 게시글 삭제 처리
 function db_delete_boards_no(&$conn, &$array_param) {
     // SQL
     $sql =
-        " UPDATE boards"
+        " UPDATE boards "
         ." SET "
-        ." deleted_at = NOW() "
+        ."  deleted_at = NOW() "
         ." WHERE "
-        ." no = :no "
+        ."  no = :no "
     ;
-    
 
     // Query 실행
     $stmt = $conn->prepare($sql);
@@ -124,19 +123,18 @@ function db_delete_boards_no(&$conn, &$array_param) {
     return $stmt->rowCount();
 }
 
-// pl로 특정 레코드 수정
+// pk로 특정 레코드 수정
 function db_update_boards_no(&$conn, &$array_param) {
     // SQL
     $sql =
         " UPDATE boards "
         ." SET "
-        ." title = :title "
-        ." ,content = :content "
-        ." ,updated_at = NOW() " 
+        ." 	title = :title "
+        ." 	,content = :content "
+        ." 	,updated_at = NOW() "
         ." WHERE "
-        ." no = :no "
+        ." 	no = :no "
     ;
-    
 
     // Query 실행
     $stmt = $conn->prepare($sql);
@@ -146,5 +144,153 @@ function db_update_boards_no(&$conn, &$array_param) {
     return $stmt->rowCount();
 }
 
+// <?php
 
-?>
+
+// function my_db_conn() {
+//     // 설정 정보가 담겨있는 함수
+//     $option = [
+//         PDO::ATTR_EMULATE_PREPARES       =>   FALSE
+//         ,PDO::ATTR_ERRMODE               =>   PDO::ERRMODE_EXCEPTION  
+//         ,PDO::ATTR_DEFAULT_FETCH_MODE    =>   PDO::FETCH_ASSOC
+//     ];
+
+//     //리턴
+//     return new PDO(MARIADB_DSN, MARIADB_USER, MARIADB_PASSWORD, $option);
+// }
+
+
+// function db_select_boards_cnt(&$conn) {
+//     $sql =
+//     " SELECT "
+//     ." COUNT(no) as cnt "
+//     ." FROM "
+//     ." boards "
+//     ." WHERE "
+//     ." deleted_at IS NULL "
+//     ;
+
+// //Query 실행
+// $stmt =$conn->query($sql);
+// $result =$stmt->fetchAll();
+
+// // 리턴
+// return (int) $result[0]["cnt"];
+
+// }
+
+// // Insert row to boards 게시판 테이블 레코드 작성처리
+// function db_insert_boards(&$conn, &$array_param) {
+//     // SQL
+//     $sql = 
+//         "INSERT INTO boards( "
+//         ." title "
+//         ." ,content "
+//         ." ) "
+//         ." VALUES( "
+//         ." :title "
+//         ." ,:content "
+//         ." ) "
+//         ;
+
+//         // Query 실행
+//         $stmt = $conn->prepare($sql);
+//         $stmt->execute($array_param);
+
+//         // 리턴
+//         return $stmt->rowCount();
+// }
+
+
+// function db_Select_boards_paging(&$conn, &$array_param) {
+//     $sql =
+//         " SELECT "	
+//         ." no "
+//         ." ,title "
+//         ." ,created_at "
+//         ." FROM "
+//         ." boards "
+//         ." WHERE "
+//         ." deleted_at IS NULL "
+//         ." ORDER BY "
+//         ." no DESC "
+//         ." LIMIT :list_cnt OFFSET :offset "
+//     ;
+
+//     //Query 실행
+//     $stmt =$conn->prepare($sql);
+//     $stmt->execute($array_param);
+//     $result = $stmt->fetchAll();
+
+//     // 리턴
+//     return $result;
+
+// }
+
+// // pk로 게시글 정보 조회
+// function db_select_boards_no(&$conn, &$array_param) {
+//     $sql =
+//         " SELECT "
+//         ." no "
+//         ." ,title "
+//         ." ,content "
+//         ." ,created_at "
+//         ." FROM "
+//         ." boards "
+//         ." WHERE "
+//         ." no = :no "
+//     ;
+
+//     // Query 실행
+//     $stmt = $conn->prepare($sql);
+//     $stmt->execute($array_param);
+//     $result = $stmt->fetchAll();
+
+//     // 리턴
+//     return $result;
+// }
+ 
+// // pK로 특정 게시글 삭제 처리
+// function db_delete_boards_no(&$conn, &$array_param) {
+//     // SQL
+//     $sql =
+//         " UPDATE boards"
+//         ." SET "
+//         ." deleted_at = NOW() "
+//         ." WHERE "
+//         ." no = :no "
+//     ;
+    
+
+//     // Query 실행
+//     $stmt = $conn->prepare($sql);
+//     $stmt->execute($array_param);
+
+//     // return
+//     return $stmt->rowCount();
+// }
+
+// // pl로 특정 레코드 수정
+// function db_update_boards_no(&$conn, &$array_param) {
+//     // SQL
+//     $sql =
+//         " UPDATE boards "
+//         ." SET "
+//         ." title = :title "
+//         ." ,content = :content "
+//         ." ,updated_at = NOW() " 
+//         ." WHERE "
+//         ." no = :no "
+//     ;
+    
+
+//     // Query 실행
+//     $stmt = $conn->prepare($sql);
+//     $stmt->execute($array_param);
+
+//     // return
+//     return $stmt->rowCount();
+// }
+
+
+// ?>
