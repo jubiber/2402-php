@@ -18,7 +18,6 @@
 
 
 h1 {
-    color: #758eff;
     padding: 20px;
     text-align: center;
     font-size: 3rem;
@@ -34,7 +33,7 @@ textarea {
 }
 
 button {
-    border: none;
+    border-style: none;
     background-color: transparent;
     cursor: pointer;
     padding: 2px;
@@ -44,10 +43,12 @@ a {
     text-decoration: none;
     color: #000;
 }
+h1 > a {
+    color: #4f6ffa;
+}
 .a-button {
     color: #fff;
     font-size: 1.2rem;
-    font-weight: 600;
     display: inline-block;
     background-color:  #9fb1ff;
     border-radius: 30px;
@@ -63,12 +64,6 @@ a {
     text-align: center;
 }
 
-
-
-.a-page-button {
-
-}
-
 main {
     background-color: #dde2ff;
     width: 600px;
@@ -76,7 +71,6 @@ main {
     padding: 15px 30px;
     border-radius: 10px;
 }
-main > div {}
 main [class^="main-"] {
     margin: 20px 0;
 }
@@ -137,6 +131,7 @@ main > [class^=main-] {
 .center {
     text-align: center;
 }
+
 
 
 
