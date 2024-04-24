@@ -26,12 +26,6 @@ function test() {
     alert('sdf');
 }
 //////////////
-const specificArea = document.querySelector('#specific-area');
-function showAlert() {
-    alert('gg');
-}
-
-specificArea.addEventListener('mouseenter', showAlert);
 
 // 2-1. 특정 영역에 마우스 포인터가 진입하면 아래 내용의 알러트가 나옵ㄴ다.
     // "두근두근"
@@ -50,12 +44,18 @@ specificArea.addEventListener('mouseenter', showAlert);
 //     alert('"두근두근"');
 // });
 
+
+const divElement = document.querySelector('#specific-area');
+
+// 특정 영역에 마우스 진입시 알림을 한 번만 표시하는 함수 정의
 function showAlertOnce() {
     alert('"두근두근"');
     divElement.removeEventListener('mouseenter', showAlertOnce);
 }
+// 특정 영역에 마우스 진입 이벤트 리스너를 추가함.
 divElement.addEventListener('mouseenter', showAlertOnce);
 
+// 특정 영역에서 마우스를 눌렀을 때의 이벤트 리스너를 추가함.
 divElement.addEventListener('mouseup', e => {
     e.target.style.color = 'orange';
 });
