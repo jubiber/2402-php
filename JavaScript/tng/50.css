@@ -1,4 +1,4 @@
-.modal-container {
+.box-item {
     background-color: transparent;
     width: 300px;
     height: 300px;
@@ -20,7 +20,4 @@
 .item:focus {
     background-color: beige;
 
-}
-.display-none {
- /* display: none; */
 }
