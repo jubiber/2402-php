@@ -1,3 +1,6 @@
+// 돔 중요 (세세 연습 필요)
+
+
 // 요소선택
 // ----------------
 // 고유한 ID로 요소를 선택
@@ -84,7 +87,7 @@ const li = document.getElementsByTagName('li');
 // li[9].style = 'color: blue;';
 
 // -> 줄여보면
-for (let i=0; i<=10; i +=2) {
+for (let i=0; i<li.length; i +=2) {
     li[i].style.color = 'blue';
 }
 //짝수
@@ -94,7 +97,7 @@ for (let i=0; i<=10; i +=2) {
 // li[6].style = 'color: red;';
 
 // -> 줄여보면
-for(let j=1; j<=9; j+=2) {
+for(let j=1; j<li.length; j+=2) {
     li[j].style.color = 'red';
 }
 
@@ -104,6 +107,92 @@ for(let j=1; j<=9; j+=2) {
 // const H1 = document.getElementsByTagName('h1');
 // // H1[1].style.color = 'green';
 // H1[1].style = 'color: green; font-size: 3rem;';
+
+// 박T
+//삼항연산자 말고 if도 ㄱㄴ
+const items = document.querySelectorAll('#ul > li');
+items.forEach((item, key) => (item.style.color = key % 2 === 0 ? 'red' : 'blue'));
+
+
+//추가안됨 why??
+// ------------
+//새로운 요소 생성
+// ------------
+// createElement(태그명) : 새로운 요소 생성
+const NEW_LI = document.createElement('li');
+NEW_LI.innerHTML = '광산게임';
+
+const TARGET = document.querySelector('#ul'); // 삽입할 부모요소 선택
+
+// appendChild(노드) : 해당 부모 노드에 마지막 자식으로 노드 추가
+TARGET.appendChild(NEW_LI);
+
+// // 동일한 형태 요소 여러개 추가방법
+// for(let i = 0; i < 3; i++) {
+//     const NEW_LI = document.createElement('li');
+// NEW_LI.innerHTML = '광산게임';
+
+// const TARGET = document.querySelector('#ul'); // 삽입할 부모요소 선택
+
+// // appendChild(노드) : 해당 부모 노드에 마지막 자식으로 노드 추가
+// TARGET.appendChild(NEW_LI);
+// }
+
+// insertBefore(새로운노드, 기준노드) : 해당 부모 노드의 자식인 특정 기준노드 앞에 새로운 노드 추가
+// ex) 지뢰찾기와 스페이스 사이에 노드추가
+const NEW_LI2 = document.createElement('li');
+NEW_LI2.innerHTML = '굴착소년쿵야';
+
+const hyeunSoo = document.querySelector('#ul > li:nth-child(3)');
+
+TARGET.insertBefore(NEW_LI2, hyeunSoo);
+
+// 프리셀을 스페이스랑 사과게임 사이에 추가
+const NEW_LI3 = document.createElement('li');
+NEW_LI3.innerHTML = '프리셀';
+
+const ABC = document.querySelector('#ul > li:nth-child(4)');
+
+TARGET.insertBefore(NEW_LI3, ABC);
+
+// 박T
+const NEW_LI4 = document.createElement('li');
+NEW_LI4.innerHEML = '프리셀';
+const APPLE = document.querySelector('#apple');
+TARGET.insertBefore(NEW_LI4, APPLE);
+
+// removeChild() : 해당 부모 노드의 자식을 삭제
+TARGET.removeChild(NEW_LI4);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

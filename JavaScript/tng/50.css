@@ -1,0 +1,18 @@
+.modal-container {
+    background-color: orange;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-top: 50%;
+}
+.item {
+    margin: 10% auto;
+    background-color: beige;
+    width: 30%;
+    height: 30%;
+}
+.display-none {
+    display: none;
+}
