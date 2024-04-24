@@ -1,19 +1,26 @@
 .modal-container {
-    background-color: orange;
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
+    background-color: transparent;
+    width: 300px;
+    height: 300px;
+    /* position: absolute; */
     top: 0;
     left: 0;
-    padding-top: 50%;
+    padding-top: 30%;
 }
 .item {
     margin: 10% auto;
+    background-color: transparent;
+    width: 50%;
+    height: 50%;
+    /* display: none; */
+}
+.item:hover {
     background-color: beige;
-    width: 30%;
-    height: 30%;
-    display: none;
+}
+.item:focus {
+    background-color: beige;
+
 }
 .display-none {
-    display: none;
+ /* display: none; */
 }
