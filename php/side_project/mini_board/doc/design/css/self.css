@@ -1,0 +1,153 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+header {
+    font-size: 3rem;
+    text-align: center;
+    padding: 10px;
+    font-weight: 700;
+    color: rgb(135, 142, 60);;
+}
+main {
+    border: 1px solid rgb(255, 242, 208);
+    width: 600px;
+    height: 400px;
+    margin: 0 auto;
+    background-color: rgb(255, 242, 208);
+
+
+}
+button {
+    padding: 10px;
+    margin: 5px;
+    background-color: rgb(209, 158, 81);
+    border-radius: 30px;
+    font-size: 1.2rem;
+    border-color: rgb(209, 158, 81);
+    margin-left: 500px;
+    color: white;
+    transition: all 0.2s ;
+}
+button:hover {
+    background-color: #b16424;
+
+}
+.title {
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    text-align: center;
+    padding: 10px;
+    background-color: rgb(209, 158, 81);
+    border-color: rgb(209, 158, 81);
+    border-radius: 20px;
+    width: 550px;
+    margin: 0 auto;
+}
+/* .list1 {
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    text-align: center;
+    padding: 10px;
+    background-color: white;
+    border-color: white;
+} */
+.list-1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    margin: 10px auto;
+    padding: 10px;
+    background-color: white;
+    width: 550px;
+    text-align: center;
+}
+.list-2 {
+    border-radius: 10px;
+    grid-template-columns: 1fr 2fr;
+}
+.list-no {
+    background-color: #b16424;
+
+}
+textarea {
+    width: 98%;
+}
+.a {
+    text-decoration-line: none;
+    color: black;
+}
+.page-no {
+    margin-left: 50px;
+}
+.page-no > a {
+    text-decoration-line: none;
+}
+
+a:visited {
+    text-decoration: none;
+    color: rgb(209, 158, 81);
+  }
+.clear {
+    clear: both;
+}
+.button-3 {
+    text-align: center;
+    display: grid;
+    grid-template-columns:;
+}
+a.button {
+    display: block;
+    position: relative;
+    float: left;
+    width: 50px;
+    padding: 0;
+    margin: 0 10px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 50px;
+    color: #FFF;
+    border-radius: 40px;
+    transition: all 0.2s ;
+    background: rgb(209, 158, 81);
+  }
+ .small-button {
+    display: inline-block;
+ }
+  .small-button:hover {
+    background: #b16424;
+  }
+
+/* insert */
+/* 제목 + 입력란 */
+.mix {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    width: 550px;
+    margin: 0 auto;
+}
+.title-1 {
+    text-align: center;
+    padding: 10px;
+    background-color: #b16424;
+    color:white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+.content-1 {
+    padding: 10px;
+    background-color: #FFF;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+input {
+    width: 350px;
+}
+
+
+
+
