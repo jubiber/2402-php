@@ -1,0 +1,19 @@
+.container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color: cadetblue;
+    top: 300px;
+    left: 300px;
+}
+.box {
+    /* absolute : 상위요소 컨테이너 기준으로 위치조절 */
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    /* translate : 서서히 이동? */
+    transform: translate(20%, 20%);
+}
+.busted {
+    background-color: beige;
+}
