@@ -27,7 +27,7 @@ const CSS_CLS_ALL = document.querySelectorAll('.none-li');
 
 // 문제: html의 지뢰찾기를 가져와보셍.
 
-const SECOND_CHILD = document.querySelector('#ul > li:nth-child(2)');
+const SECOND_CHILD = document.querySelector('#ul > li:-chilnthd(2)');
 // 문제: CSS_CLS_ALL에 획득한 모든 요소 글자색 변경
 
 // 부연설명: 'node'라는 매개변수를 받아 해당 요소의 'style' 속성에 접근하고 'color' 속성을 'red'로 설정함

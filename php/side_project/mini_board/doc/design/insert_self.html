@@ -7,29 +7,33 @@
     <link rel="stylesheet" href="./css/self.css">
 </head>
 <body>
-    <header>diet story</header>
+    <header>
+    <h1><a href="./index_self.html">mini board</a></h1>
+    </header>
     <main>
-        <br>
-        <form action="">
-            <div class="mix">
-                <div class="title-1">제목</div>
-                <div class="content-1">
-                    <input type="text-1" placeholder="제목을 입력해 주세요." required>
+        <form action="./index_self.html" method="post">
+            <div class="main-middle">
+                <div class="line-item line-item1">
+                    <label class="line-title line-title1" for="title">
+                        <div>제목</div>
+                    </label>
+                    <div class="line-content line-content1">
+                        <input type="text" name="title" id="title" placeholder="제목을 입력해 주세요." required>
                 </div>
             </div>
-            <br>
-            <div class="mix">
-                <div class="title-1">내용</div>
-                <div class="content-1">
-                    <textarea name="" id="" cols="30" rows="12"></textarea>
+            <div class="line-item line-item2">
+                <label class="line-title line-title2" for="content" required>
+                    <div class="line-title textarea line-title2">내용</div>
+                </label>
+                <div class="line-content line-content2">
+                    <textarea name="content" id="content" cols="30" rows="12"></textarea>
                 </div>
+            </div>
+            <div class="main-bottom">
+                <button type="submit" class="a-button small-button">작성</button>
+                <a href="./index_self.html" class="a-button small-button">취소</a>
             </div>
         </form>
-        <br>
-    <div class="button-3">
-        <button type="" name="store" class="small-buttom">저장</button>
-        <button type="" name="dont" class="small-buttom">취소</button>
-    </div>
     </main>
 </body>
 </html>

@@ -24,15 +24,15 @@
 let intervalId; // setInterval의 ID를 저장할 변수
 
 function clock() {
-    let timetext = document.querySelector('h2'); // h1 태그 가져오기
+    let timetext = document.querySelector('h2'); // h2 태그 가져오기
     let today = new Date(); // 날짜랑 시간
     let H = today.getHours(); // 시간
     let M = today.getMinutes(); // 분
     let S = today.getSeconds(); //초
 
-    H = (H < 25) ? '0' + H : H;
+    H = (H < 10) ? '0' + H : H;
     M = (M < 10) ? '0' + M : M;
-    S = (S <)
+    S = (S < 10) ? '0' + S : S;
 
     timetext.innerHTML = `현재 시각 오후 ${H}:${M}:${S}`; //html 에 출력
 }
@@ -51,8 +51,9 @@ BTN.addEventListener('click', () => {
 const BTN2 = document.querySelector('#btn2');
 
 BTN2.addEventListener('click', () => {
+    //재시작 클릭 시 고정?어쩌고 위해
+    // 이거 두는게 낫다고 하셨음. 수업할 때 설명하신대
     clearInterval(intervalId);
-
     intervalId = setInterval(clock, 1000);
 });
 

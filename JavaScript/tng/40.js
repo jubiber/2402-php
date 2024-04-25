@@ -11,6 +11,8 @@ const myBusted = () => {
     alert('들켰다.');
     const DIV_BOX = document.querySelector('.box');
     DIV_BOX.classList.toggle('busted'); // 배경색 부여
+
+    ///
     DIV_BOX.removeEventListener('click', myBusted); // 기존 들켰다 event 제거
     // 숨는다 이벤트 추가
     DIV_BOX.addEventListener('click',myHide)
@@ -24,6 +26,7 @@ const myHide = () => {
     alert('숨는다.');
     DIV_BOX.classList.toggle('busted'); // 배경색 부여
     DIV_BOX.removeEventListener('click', myBusted); // 기존 숨는다 이벤트 제거
+    //?
     DIV_BOX.addEventListener('click', myHide);
     DIV_CONTAINER.addEventListener('mouseenter', myDokidoki);
     
@@ -46,6 +49,8 @@ const myHide = () => {
     // "안녕하세요."
     // "숨어있는 div를 찾아보세요."
 const BTN_INFO = document.querySelector('#btn-info');
+// \n -> 줄 바꿈을 나타내는 특수한 이스케이프 시퀀스임
+// 텍스트가 두 줄로 나타남
 BTN_INFO.addEventListener('click', () => (alert('안녕하세요.\n숨어있는 div를 찾아보세요')));
 
 // 2-1. 특정 영역에 마우스 포인터가 진입하면 아래 내용의 알러트가 나옵니다.

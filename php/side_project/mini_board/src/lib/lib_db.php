@@ -5,12 +5,16 @@
 function my_db_conn() {
     // 설정 정보
     $option = [
-        PDO::ATTR_EMULATE_PREPARES      => FALSE
+        // sql문을 미리 컴파일하지 않고 직접 실행
+        PDO::ATTR_EMULATE_PREPARES      => FALSE 
+        // 에러가 발생할 경우 예외로 처리
         ,PDO::ATTR_ERRMODE              => PDO::ERRMODE_EXCEPTION
+        // 기본적으로 연관 배열 형태로 결과 반환
         ,PDO::ATTR_DEFAULT_FETCH_MODE   => PDO::FETCH_ASSOC
     ];
 
     // 리턴
+    // PDO 객체 생성 및 설정된 옵션 적용하여 데이터베이스 연결
     return new PDO(MARIADB_DSN, MARIADB_USER, MARIADB_PASSWORD, $option);
 }
 
@@ -59,6 +63,8 @@ function db_select_boards_paging(&$conn, &$array_param) {
 }
 
 // ■ Insert row to boards 게시판 테이블 레코드 작성처리
+//좀더 쉽게 말하자면
+//게시판에 데이터를 삽입하는 sql 쿼리 생성
 function db_insert_boards(&$conn, &$array_param) {
     // SQL
     $sql =
