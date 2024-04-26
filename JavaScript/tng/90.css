@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.main-container {
+    /* position: relative; */
+
+}
+h1 {
+    background-color: black;
+    height: 80px;
+    color: white;
+    text-align: center;
+    line-height: 80px;
+}
+.img-container {
+
+}
+.url-container {
+    text-align: center;
+}
+.click-button {
+    text-align: center;
+    margin-right: 60px;
+}
+.number {
+    text-align: center;
+}
