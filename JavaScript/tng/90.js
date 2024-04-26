@@ -28,7 +28,7 @@ function myMakeImg(data) {
         const numberDiv = document.createElement('div');
         numberDiv.textContent = item.id;
         numberDiv.style.position = 'absolute'; // 절대적인 위치 지정
-        numberDiv.style.top = '90px'; // 위에서부터 5px 위치
+        numberDiv.style.top = '10px'; // 위에서부터 5px 위치
         numberDiv.style.left = '50px'; // 왼쪽에서부터 5px 위치
     
         
@@ -38,7 +38,8 @@ function myMakeImg(data) {
         ADD_IMG.setAttribute('src', item.download_url);
         ADD_IMG.style.width = '100px'; 
         ADD_IMG.style.height = '80px';
-        
+        ADD_IMG.style.position = 'relative';
+        ADD_IMG.style.top = '40px';
 
 
     
