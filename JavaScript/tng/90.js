@@ -21,6 +21,7 @@ function myMakeImg(data) {
         imageDiv.style.backgroundColor = 'gray';
         imageDiv.style.display = 'inline-block';
         imageDiv.style.position = 'relative';
+        imageDiv.style.margin = '10px';
 
         // const NUM = document.querySelector('.number');
         const numberText = document.createTextNode(item.id);
