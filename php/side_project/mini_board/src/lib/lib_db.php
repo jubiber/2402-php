@@ -104,6 +104,7 @@ function db_select_boards_no(&$conn, &$array_param) {
     // Query 실행
     $stmt = $conn->prepare($sql);
     $stmt->execute($array_param);
+    // fetchAll -> PDO에서 사용되는 메서드 중 하나
     $result = $stmt->fetchAll();
     
     // 리턴

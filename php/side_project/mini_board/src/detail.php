@@ -9,6 +9,9 @@ try {
 
     // 게시글 데이터 조회
     // 파라미터 획득
+    // isset -> 변수가 설정되어 있고, null이 아닌지를 확인하는 함수
+    // 이 함수는 변수가 설정되어 있고, 값이 null이 아닌 경우에만
+    // true를 반환, 그렇지 않으면 false 반환 (안전 검증)
     $no = isset($_GET["no"]) ? $_GET["no"] : ""; // no 획득
     $page = isset($_GET["page"]) ? $_GET["page"] : ""; // page 획득
 
@@ -20,7 +23,12 @@ try {
     if($page === "") {
         $arr_err_param[] = "page";
     }
+    // $arr_err_param -> 오류 저장
+    // count() -> 배열에 저장된 오류의 수 계산
+    // if -> 배열에 저장된 오류가 한 개 이상인지 확인. 배열이 비어있지
+    // 않고  오류가 있을 때 실행됨.
     if(count($arr_err_param) > 0) {
+      // 오류 있으면 throw new Exception 으로 예외 발생시킴
         throw new Exception("Parameter Error : ".implode(", ", $arr_err_param));
     }
 

@@ -89,7 +89,7 @@ if (REQUEST_METHOD === "POST") {
         <div class="main-middle">
           <div class="line-item">
             <label class="line-title" for="content ">
-              <div class="line-title">제목</div>
+              <div class="line-title"><?php echo $item["title"] ?>제목</div>
             </label>
             <div class="line-content">
               <input type="text" name="title" id="title">
@@ -97,7 +97,7 @@ if (REQUEST_METHOD === "POST") {
           </div>
           <div class="line-item">
             <label class="line-title" for="content">
-              <div class="line-title">내용</div>
+              <div class="line-title"><?php echo $item["content"] ?>내용</div>
             </label>
             <div class="line-content">
              <textarea name="content" id="content" rows="10"></textarea>
