@@ -12,9 +12,9 @@ define("_MARIA_DB_NAME", "mini_multi_board");
 define("_MARIA_DB_CHARSET", "utf8mb4");
 define("_MARIA_DB_DNS",
     "mysql:host=" ._MARIA_DB_HOST
-    .";port=",_MARIA_DB_PORT
+    .";port="._MARIA_DB_PORT
     .";dbname="._MARIA_DB_NAME
-    .";charset"._MARIA_DB_CHARST);
+    .";charset"._MARIA_DB_CHARSET);
 
 
 

@@ -9,17 +9,17 @@ class Model {
     // 생성자
     public function __construct() {
         try {
-            $otp = [
+            $opt = [
             PDO::ATTR_EMULATE_PREPARES      => false //DB의 Prepared Statement 기능을
-            ,PDO::ATTER_ERRMODE             => PDO::ERRMODE_EXCEPTION //PDO Exception
-            ,PDO::ATTER_DEFAULT_FETCH_MODE  => PDO::FETCH_ASSOC // 연관 배열로 Fetch 설정
+            ,PDO::ATTR_ERRMODE             => PDO::ERRMODE_EXCEPTION //PDO Exception
+            ,PDO::ATTR_DEFAULT_FETCH_MODE  => PDO::FETCH_ASSOC // 연관 배열로 Fetch 설정
             ];
         
             // PDO 인스턴스
-            $this->conn = new PDO(MARIA_DB_DNS, _MARIA_DB_UWER, _MARIA_DB_PW, $opt);
+            $this->conn = new PDO(_MARIA_DB_DNS, _MARIA_DB_USER, _MARIA_DB_PW, $opt);
 
         } catch(\Throwable $th) {
-            echo "Model >> __construct()" .$th->getMessate();
+            echo "Model >> __construct()" .$th->getMessage();
             exit;
         }
     }
@@ -44,6 +44,3 @@ class Model {
         $this->conn = null;
     }
 }
-require_once("../config.php");
-new Model();
-

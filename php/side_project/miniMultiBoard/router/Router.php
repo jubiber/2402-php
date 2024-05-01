@@ -19,6 +19,7 @@ class Router {
 		//		ex) 수정 : 도메인/board/edit
 
         $url = $_GET["url"]; // url 획득
+        // HTTP 메소드는 클라우드가 서버에게 요청을 보낼 때 사용하는 동작을 정의함
         $httpMethod = $_SERVER["REQUEST_METHOD"]; // HTTP 메소드 획득
 
         // url 체크
@@ -34,6 +35,11 @@ class Router {
             if($httpMethod === "GET") {
                 new BoardController("listGet");
             }
+        } else if($url === "user/logout") {
+            // 로그아웃 처리
+            if($httpMethod === "GET") {
+                new UserController("logoutGet");
+            }
         }
 
 
@@ -41,3 +47,4 @@ class Router {
         echo "잘못된 URL : ".$url;
         exit;
     }
+}
