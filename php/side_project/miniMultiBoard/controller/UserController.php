@@ -1,13 +1,10 @@
 <?php
 namespace controller;
 
-
-// 상속처리 (in 특징 추상화)
 class UserController extends Controller {
     // 로그인 페이지로 이동
     protected function loginGet() {
-        // 반환
-        return "login.php";  
+        return "login.php";
     }
 
     // 로그인 처리
@@ -18,9 +15,8 @@ class UserController extends Controller {
             ,"u_pw" => $_POST["u_pw"]
         ];
 
-        var_dump($requestData);
         // 유효성 체크
-        // TODO: 나중에 구현
+        // TODO : 나중에 구현
 
         // 유저정보 획득
 
@@ -28,9 +24,7 @@ class UserController extends Controller {
         // 유저 존재 유무 체크
 
         // 세션에 u_id 저장
-        
-        // 로케이션 처리
 
-        exit;
+        // 로케이션 처리
     }
 }

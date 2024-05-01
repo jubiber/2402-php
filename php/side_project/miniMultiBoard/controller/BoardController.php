@@ -7,4 +7,3 @@ class BoardController extends Controller {
         return "boardList.php";
     }
 }
-

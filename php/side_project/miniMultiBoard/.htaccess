@@ -1,5 +1,7 @@
-Options -MultiViews
-RewriteEngine On
+
+
+Options -MultiViews    // MultiViews 옵션을비활성화
+RewriteEngine On //Apache의 모듈인 'mod_rewrite'를 활성화 함.
 Options -Indexes
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
