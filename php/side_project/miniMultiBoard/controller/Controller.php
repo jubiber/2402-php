@@ -4,9 +4,13 @@
 //controller -> 제어하다.
 namespace controller;
 
+use model\BoardsnameModel; 
+
 class Controller {
     //내부 상속
     protected $arrErrorMsg = []; // 화면에 표시할 에러 메세지 리스트
+    protected $arrBoardsNameInfo = []; // 헤더 게시판 드롭다운 리스트
+    protected $boardName = ""; // 게시판이름 
 
     // 비로그인시 접속 불가능한 URL 리스트
     // private -> 내부만. 상속x
@@ -30,6 +34,10 @@ class Controller {
         //chk 어쩌고가 메소드임.
         $this->chkAuthorization();
 
+        // 헤더 드롭다운 리스트 획득
+        $modelBoardname = new BoardsnameModel();
+        $this->arrBoardsNameInfo = $modelBoardname->getBoardsnameList();
+        $modelBoardname->destroy();
 
         // 해당 action 호출
         // this -> loginGet(Post)을 호출한는거임

@@ -50,6 +50,7 @@ class UserController extends Controller {
     }
 
     // 로그아웃 처리
+    // 내부, 외부, 상속x
     public function logoutGet() {
         // 둘중 아무거나 쓰면 됨
         // uset은 해당 키 적으면 그것만 지웈

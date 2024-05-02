@@ -40,7 +40,7 @@ class Model {
     }
 
     //DB 파기
-    public function destory() {
+    public function destroy() {
         $this->conn = null;
     }
 }
