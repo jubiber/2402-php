@@ -10,10 +10,6 @@ class UsersModel extends Model {
             //     ,"u_pw" => "aklsjflkwejflk"
             // ];
         try {
-            $sql = " SELECT * "
-            ." FROM users "
-            ." WHERE " ;
-            
             // u_id = 1 and u_email = 'asd' and u_pw = 'asdasd';
             // [
             //     "u_id = :u_id", "u_email = :u_email", "u_pw = :u_pw"

@@ -1,4 +1,5 @@
 <?php
+// 라우터 -> 컴퓨팅 디바이스와 네트워크를 다른 네트워크에 연결하는 네트워킹 디바이스임
 namespace router;
 
 use controller\UserController;

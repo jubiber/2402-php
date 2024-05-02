@@ -19,10 +19,16 @@ class UserController extends Controller {
             ,"u_pw" => $_POST["u_pw"]
         ];
 
-        // 유효성 체크
+        // 유효성 체크(validator -> 코드의 구문 오류를 검사하는 프로그램)
         // TODO : 나중에 구현
+        // '$requestData'를 이용하여 'UserValidator' 클래스의 'chkValidator' 메소드를
+        // 호출하고, 반환값을 '$resultValidator' 변수에 할당한다.
         $resultValidator = UserValidator::chkValidator($requestData);
+        // $resultValidator 배열의 요소 개수가 0보다 큰지 확인한다. 
+        //즉, 유효성 검사 결과에 오류가 있는지를 판단함
         if(count($resultValidator) > 0) {
+            // 클래스 속성인 '$this->arrErrorMsg'에 '$resultValidator' 배열을
+            // 할당한다. 이 배열은 오류 메세지를 담고 있다.
             $this->arrErrorMsg= $resultValidator;
             return "login.php";
         }
