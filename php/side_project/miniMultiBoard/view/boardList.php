@@ -35,7 +35,7 @@
   <main>
     <?php
        foreach($this->arrBoardList as $item) {
-      ?>
+    ?>
       <div class="card" id="card<?php echo $item["b_id"]; ?>">
           <img src="<?php echo $item["b_img"]; ?>" class="card-img-top">
           <div class="card-body">
@@ -52,10 +52,7 @@
       }
       ?>
     </main>
-
   <footer class="fixed-bottom bg-dark text-center text-light p-3">저작권</footer>
-
-
 
   <!-- 상세 모달 -->
   <div class="modal" tabindex="-1" id="modalDetail">
