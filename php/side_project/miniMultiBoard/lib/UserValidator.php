@@ -10,22 +10,33 @@ class UserValidator {
         
 
         // 패턴 생성
-        $patternEmail = "/^[0-9a-zA-Z](?!.*?[\-\_\.]{2})[a-zA-Z0-9\-\_\.]{3,63}@[0-9a-zA-Z](?!.*?[\-\_\.]{2})[a-zA-Z0-9\-\_\.]{3,63}\.[a-zA-Z]{2,3}$/";
-        $patternPassword = "/^[a-zA-Z0-9!@]{8,20}$/";
+        $patternEmail       = "/^[0-9a-zA-Z](?!.*?[\-\_\.]{2})[a-zA-Z0-9\-\_\.]{3,63}@[0-9a-zA-Z](?!.*?[\-\_\.]{2})[a-zA-Z0-9\-\_\.]{3,63}\.[a-zA-Z]{2,3}$/";
+        $patternPassword    = "/^[a-zA-Z0-9!@]{8,20}$/";
+        $patternName        = "/^[가-힣]{1,50}$/";
+
+
+         // 이름 체크
+         if(array_key_exists("u_name", $param_arr)) {
+            if(preg_match($patternName, $param_arr["u_name"], $matches) === 0) {
+                $arrErrorMsg[] = "1. 이름: 한글만 입력 하실 수 있습니다";
+            }
+        }
 
         // 이메일 체크
         if(array_key_exists("u_email", $param_arr)) {
             if(preg_match($patternEmail, $param_arr["u_email"], $matches) === 0) {
-                $arrErrorMsg[] = "이메일 형식이 맞지 않습니다.";
+                $arrErrorMsg[] = "2. 이메일: 형식을 다시 한번 확인 부탁드립니다.";
             }
         }
         
         // 패스워드 체크
         if(array_key_exists("u_pw", $param_arr)) {
             if(preg_match($patternPassword, $param_arr["u_pw"], $matches) === 0) {
-            $arrErrorMsg[] = "비밀번호 형식이 맞지 않습니다!";
+            $arrErrorMsg[] = "3. 비밀번호: 영어 대소문자 및 숫자, 특수문자(!,@) 8~20를 활용하여 작성해주세요.";
         }
     }
+
+ 
 
     return $arrErrorMsg;
 }

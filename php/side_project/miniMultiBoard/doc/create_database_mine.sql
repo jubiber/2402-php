@@ -58,6 +58,9 @@ VALUES('gromit@naver.com', 'qwer123!', '그로밋');
 INSERT INTO users(u_email, u_pw, u_name)
 VALUES('mommu@naver.com', 'qwer123!', '몸무');
 
+INSERT INTO users(u_email, u_pw, u_name)
+VALUES('eunhye@eunhye.com', 'qwer123!', '주은혜');
+
 INSERT INTO boards(u_id, b_type, b_title, b_content, b_img)
 VALUES('1', '0', '자유1', '자유내용1', '/view/img/cat1.png')
 ,('1', '0', '자유2', '자유내용2', '/view/img/cat2.png')

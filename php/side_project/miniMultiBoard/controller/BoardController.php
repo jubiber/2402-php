@@ -91,6 +91,9 @@ class BoardController extends Controller {
             $modelBoards = new BoardsModel();
             $resultBoard = $modelBoards->getBoard($requestData);
 
+            // 로그인 유저 pk 추가
+            $resultBoard[0]["login_u_id"] = $_SESSION["u_id"];
+
             // JSON 변환
             $response = json_encode($resultBoard);
 

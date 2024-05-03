@@ -37,9 +37,35 @@ class UsersModel extends Model {
             echo "UsersModel -> getUserInfo(),".$th->getMessage();
             exit;
         }
+    }
 
         // 세션에 u_id 저장
 
         // 로케이션 처리
+
+        // 회원 정보 insert
+        public function addUserInfo($paramArr) {
+            try {
+                $sql =
+                " INSERT INTO users( "
+                ." u_name "
+                ." ,u_email "
+                ." ,u_pw "                
+                ." ) "
+                ." VALUES( "
+                ." ,:u_name "
+                ." ,:u_email "
+                ." ,:u_pw "                
+                ." ) "
+                ;
+
+                $stmt = $this->conn->prepare($sql);
+                $stmt->execute($paramArr);
+
+                return $stmt->rowCount();
+            } catch (\Throwable $th) {
+               echo "UserModel -> addUserInfo(, ".$th->getMessage();
+               exit;
+            }
     }
 }

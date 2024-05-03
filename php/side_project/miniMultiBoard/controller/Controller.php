@@ -52,8 +52,15 @@ class Controller {
     }
 
     // 뷰 OR 로케이션 처리용 메소드
+    // private function callView($path) {
+    //     if(strpos($path, "Location:") === 0) {
+    //         header($path);
+    //     } else {
+    //         require_once("view/".$path);
+    //     }
+    // }
     private function callView($path) {
-        if(strpos($path, "Location:") === 0) {
+        if (strncmp($path, "Location:", strlen("Location:")) === 0) {
             header($path);
         } else {
             require_once("view/".$path);
