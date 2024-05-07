@@ -26,7 +26,7 @@ class UsersModel extends Model {
             }
             // WHERE절 추가
             $sql .= implode(" and ", $arrWhere);
-        
+            
             // 데이터 획득
             $stmt = $this->conn->prepare($sql);
             $stmt->execute($paramArr);
