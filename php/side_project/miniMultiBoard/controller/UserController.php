@@ -17,12 +17,13 @@ class UserController extends Controller {
             "u_email" => $_POST["u_email"]
             ,"u_pw" => $_POST["u_pw"]
         ];
-
+        
         // 유효성 체크(validator -> 코드의 구문 오류를 검사하는 프로그램)
         // TODO : 나중에 구현
         // '$requestData'를 이용하여 'UserValidator' 클래스의 'chkValidator' 메소드를
         // 호출하고, 반환값을 '$resultValidator' 변수에 할당한다.
         $resultValidator = UserValidator::chkValidator($requestData);
+        
         // $resultValidator 배열의 요소 개수가 0보다 큰지 확인한다. 
         //즉, 유효성 검사 결과에 오류가 있는지를 판단함
         if(count($resultValidator) > 0) {
@@ -54,6 +55,52 @@ class UserController extends Controller {
 
     }
 
+     //회원 정보 수정
+     protected function editGet() {
+        return "edit.php"; // 회원정보 수정 페이지 파일명 변환
+    }
+
+    // 회원정보 수정 처리
+    protected function editPost() {
+        $requestData = [
+            "u_name" => $_POST["u_name"]
+            ,"u_pw" => $_POST["u_pw"]
+            ,"u_pw_check" => $_POST["u_pw_check"]
+        ];
+
+        // 유효성 check
+        $resultValidator = UserValidator::chkValidator($requestData);
+        if(count($resultValidator) > 0) {
+            $this->arrErrorMsg= $resultValidator;
+            return "edit.php";
+        }
+
+        // 유저 정보 획득
+        $userInfoData = [
+            "u_id" => $_SESSION["u_id"]
+        ];
+        $modelUsers = new UsersModel(); // 모델 객체 생성
+        $resultUserInfo = $modelUsers->getUserInfo($userInfoData);
+
+        // update 데이터 셋팅
+        $userInfoData["u_pw"] = $this->encryptionPassword($requestData["u_pw"], $resultUserInfo["u_email"]);
+        $userInfoData["u_name"] = $requestData["u_name"];
+
+        // 회원 정보 update 처리
+        $modelUsers->beginTransaction();
+        $resultUserInsert = $modelUsers->editUserInfo($userInfoData);
+        if($resultUserInsert === 1) {
+            $modelUsers->commit();
+        } else {
+            $modelUsers->rollBack();
+            $this->arrErrorMsg = ["회원정보 수정에 실패했습니다."];
+            return "edit.php";     
+        }
+
+        return "Location: /board/list";
+
+    }
+
     // 로그아웃 처리
     // 내부, 외부, 상속x
     protected function logoutGet() {
@@ -74,8 +121,8 @@ class UserController extends Controller {
     // 회원 가입 처리
     protected function registPost() {
         $requestData = [
-            "u_name"   =>   $_POST["u_name"]
-            ,"u_email"     =>   $_POST["u_email"]
+            "u_email"   =>   $_POST["u_email"]
+            ,"u_name"     =>   $_POST["u_name"]
             ,"u_pw"   =>   $_POST["u_pw"]
         ];
 
@@ -116,6 +163,7 @@ class UserController extends Controller {
         return "Location: /user/login";
     }
 
+    
     // 이메일 체크 처리
     protected function chkEmailPost() {
         // 유저 입력 데이터 획득
@@ -162,4 +210,5 @@ class UserController extends Controller {
     private function encryptionPassword($pw, $email) {
         return base64_encode($pw.$email);
     }
+
 }

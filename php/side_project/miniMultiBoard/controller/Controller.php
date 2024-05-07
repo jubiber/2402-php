@@ -60,7 +60,7 @@ class Controller {
     //     }
     // }
     private function callView($path) {
-        if (strncmp($path, "Location:", strlen("Location:")) === 0) {
+        if ($path !== null && strncmp($path, "Location:", strlen("Location:")) === 0) {
             header($path);
         } else {
             require_once("view/".$path);
