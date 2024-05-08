@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//  루트 경로('/')로 접속하면 'welcome' 뷰를 반환합니다.
 Route::get('/', function () {
     return view('welcome');
 });
@@ -40,15 +40,16 @@ Route::get('/myview', function() {
 Route::get('/home', function() {
     return view('home');
 });
-
+// POST 요청에 대한 처리
 Route::post('/home', function() {
     return 'POST HOME';
 });
-
+// PUT 요청에 대한 처리
 Route::put('/home', function() {
     return 'PUT HOME';
 });
 
+// DELETE 요청에 대한 처리
 // 주의: URL 안겹치게!
 Route::delete('/home', function() {
     return 'DOME';ELETE H
@@ -57,6 +58,8 @@ Route::delete('/home', function() {
 // ----------------------
 // 라우터에서 파라미터 제어
 // ----------------------
+// 파라미터 획득
+
 // 파라미터 획득
 Route::get('/param', function(Request $request) {
     return 'ID : '.$request->id.", name: ".$request->name;
