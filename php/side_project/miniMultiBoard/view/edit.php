@@ -23,18 +23,19 @@
   <main class="d-flex justify-content-center align-items-center h-75">
     
     <form style="width: 300px" action="/user/edit" method="post">
+    <h2>회원정보 수정</h2>
       <?php require_once("view/inc/errorMsg.php"); ?>
-      <h1>회원정보 수정</h1>
+      
       <label for="u_name" class="form-label">이름</label>
-      <input type="text" class="form-control mb-3" id="u_name" name="u_name" value="<?php echo $u_name; ?>">
+      <input type="text" class="form-control mb-3" id="u_name" name="u_name" value="<?php echo $this->getUserInfo("u_name"); ?>">
       <label for="u_pw" class="form-label">비밀번호</label>
       <input type="password" class="form-control mb-3" id="u_pw" name="u_pw">
       <label for="u_pw_check" class="form-label">비밀번호 확인</label>
       <input type="password" class="form-control mb-3" id="u_pw_check" name="u_pw_check">
       <!-- <input type="password" class="form-control mb-3" id="u_pw" name="u_pw">
       <button type="submit" class="btn btn-dark">로그인</button> -->
-      <button id="my-btn-complete" type="submit"  class="btn btn-dark ">수정</button>
-      <a href="/user/login" class="btn btn-secondary float-end">취소</a>
+      <button id="my-btn-complete" type="submit"  class="btn btn-dark ">완료</button>
+      <a href="/board/list" class="btn btn-secondary float-end">취소</a>
     </form>
   </main>
 

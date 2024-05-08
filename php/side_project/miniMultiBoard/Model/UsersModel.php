@@ -68,7 +68,7 @@ class UsersModel extends Model {
             exit;
         }
     }
-    // 화원정보 수정
+    // 화원정보 수정 (박T: 유저 정보 업데이트)
     public function editUserInfo($paramArr) {
         try {
             $sql =

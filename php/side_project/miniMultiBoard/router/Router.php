@@ -70,11 +70,12 @@ class Router {
                 new BoardController("deletePost");
             }
         } else if($url === "user/edit") {
-            // 회원정보 수정
+            // 회원정보 수정 
+            // 1. 단순 page 이동
             if($httpMethod === "GET") {
                 new UserController("editGet");
-            }
-            else if($httpMethod === "POST") {
+            } // 2.실제 수정부분
+            else {
                 new UserController("editPost");
             }
         } 

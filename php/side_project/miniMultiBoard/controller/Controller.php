@@ -17,6 +17,10 @@ class Controller {
     private $arrNeedAuth = [
         // 자유게시판을 의미
         "board/list"
+        ,"board/add"
+        ,"board/detail"
+        ,"board/delete"
+        ,"user/edit"
     ];
 
     // 생성자
