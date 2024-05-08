@@ -51,7 +51,7 @@ Route::put('/home', function() {
 
 // 주의: URL 안겹치게!
 Route::delete('/home', function() {
-    return 'DELETE HOME';
+    return 'DOME';ELETE H
 });
 
 // ----------------------
