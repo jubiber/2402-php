@@ -52,7 +52,7 @@ Route::put('/home', function() {
 // DELETE 요청에 대한 처리
 // 주의: URL 안겹치게!
 Route::delete('/home', function() {
-    return 'DOME';ELETE H
+    return 'DELETE HOME';
 });
 
 // ----------------------
