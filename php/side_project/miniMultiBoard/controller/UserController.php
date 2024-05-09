@@ -7,17 +7,16 @@ use lib\UserValidator;
 class UserController extends Controller {
     // UserController 내에서만 이용(부모x)
     private $userInfo = [];
-///////////////////////////////////////////////////////////////////
     //getter메세지 가져오기??
     public function getUserInfo($key) {
         return $this->userInfo[$key];
     }
-///////////////////////////////////////////////////////////////////
+
     // 로그인 페이지로 이동
     protected function loginGet() {
         return "login.php"; // 로그인 페이지 파일명 반환
     }
-//////////////////////////////////////////////////////////////////////
+
     // 로그인 처리
     protected function loginPost() {
         // 유저 입력 정보 획득
@@ -62,7 +61,7 @@ class UserController extends Controller {
         return "Location: /board/list";
 
     }
-/////////////////////////////////////////////////////////////////////////
+
      // 1. 회원 정보 수정 page 이동
      protected function editGet() {
         $queryData = [
@@ -75,9 +74,16 @@ class UserController extends Controller {
         return "edit.php"; // 회원정보 수정 페이지 파일명 변환
     }
 
-///////////////////////////////////////////////////////////////////
+
     // 2. new 회원정보 수정 
     protected function editPost() {
+        // 유저 정보 획득
+        $selectData = [
+            "u_id" => $_SESSION["u_id"]
+        ];
+        $modelUsers = new UsersModel();
+        $this->userInfo = $modelUsers->getUserInfo($selectData);
+
         $requestData = [
             "u_name" => $_POST["u_name"]
             ,"u_pw" => $_POST["u_pw"]
@@ -90,22 +96,12 @@ class UserController extends Controller {
             $this->arrErrorMsg= $resultValidator;
             return "edit.php";
         }
-
-        // 유저 정보 획득
-        $selectData = [
-            "u_id" => $_SESSION["u_id"]
-        ];
-        $modelUsers = new UsersModel();
-        $this->userInfo = $modelUsers->getUserInfo($selectData);
         // 유저 정보 업데이트
         $updateData = [
             "u_id" => $_SESSION["u_id"]
             ,"u_name" => $requestData["u_name"]
             ,"u_pw" => $this->encryptionPassword($requestData["u_pw"], $this->getUserInfo("u_email"))
         ];
-
-        $modelUsers = new UsersModel(); // 모델 객체 생성
-        $resultUserInfo = $modelUsers->getUserInfo($updatefoData);
 
         // 유저 존재 유무 체크 (비어있는가?)
         if(empty($resultUserInfo)) {
@@ -117,7 +113,7 @@ class UserController extends Controller {
         }
 
         // update 데이터 셋팅
-        $updateData["u_pw"] = $this->encryptionPassword($requestData["u_pw"], $resultUserInfo["u_email"]);
+        $updateData["u_pw"] = $this->encryptionPassword($requestData["u_pw"], $this->getUserInfo('u_email'));
         $updateData["u_name"] = $requestData["u_name"];
 
         // 회원 정보 update 처리
@@ -132,7 +128,7 @@ class UserController extends Controller {
         return "Location: /board/list";
 
     }
-////////////////////////////////////////////////////////////////
+
 
     // 로그아웃 처리
     // 내부, 외부, 상속x
@@ -145,12 +141,12 @@ class UserController extends Controller {
 
         return "Location: /user/login";
     }
-///////////////////////////////////////////////////////////////////
+
     // 회원 가입 페이지 이동
     protected function registGet() {
         return "regist.php";
     }
-///////////////////////////////////////////////////////////////////
+
     // 회원 가입 처리
     protected function registPost() {
         $requestData = [
@@ -196,7 +192,7 @@ class UserController extends Controller {
         return "Location: /user/login";
     }
 
-///////////////////////////////////////////////////////////////////    
+  
     // 이메일 체크 처리
     protected function chkEmailPost() {
         // 유저 입력 데이터 획득
@@ -238,7 +234,7 @@ class UserController extends Controller {
         echo json_encode($responseArr);
         exit;
     }
-///////////////////////////////////////////////////////////////////
+
     // 비밀번호 암호화
     private function encryptionPassword($pw, $email) {
         return base64_encode($pw.$email);

@@ -25,7 +25,7 @@ class BoardsModel extends Model {
 
                 return $result;
             }
-         catch(\Throwalble $th) {
+         catch(\Throwable $th) {
             echo "BoardsModel -> getBoardList, ".$th->getMessage();
             exit;
         }
@@ -97,7 +97,7 @@ class BoardsModel extends Model {
                 ." AND u_id = :u_id "
                 ;
 
-                $stmt = $this->conn->perpare($sql);
+                $stmt = $this->conn->prepare($sql);
                 $stmt->execute($paramArr);
 
                 return $stmt->rowCount();

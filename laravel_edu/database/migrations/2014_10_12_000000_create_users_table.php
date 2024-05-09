@@ -11,16 +11,17 @@ return new class extends Migration
      *
      * @return void
      */
+    // 유저 테이블 생성
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
+            $table->dateTime('created_at')->useCurrent();
+            $table->dateTime('updated_at')->useCurrent();
+            $table->dateTime('deleted_at')->nullable();
         });
     }
 
@@ -29,6 +30,7 @@ return new class extends Migration
      *
      * @return void
      */
+    // 유저 테이블 제거
     public function down()
     {
         Schema::dropIfExists('users');
