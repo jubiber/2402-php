@@ -13,8 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('users', function(Blueprint $table) {
-            $table->char('gender', 1)->nullable()->after('password');
+        Schema::create('board_names', function (Blueprint $table) {
+            $table->id();
+            // 유니크 설정 -> 다대 다 (pk거나 unique)
+            $table->char('type', 1)->unique();
+            $table->string('name',30);
         });
     }
 
@@ -25,8 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('users', function(Blueprint $table) {
-            $table->dropColumn('gender');
-        });
+        Schema::dropIfExists('board_names');
     }
 };

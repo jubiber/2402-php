@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    //마이그레이션 파일 생성 :  php artisan make:migration 파일명
-    // 마이그레이션 실행 : php artisan migrate
-    // 마이그레이션 롤백(직전의 마이그레이션 작업 되돌리기) : php artisan migrate:rollback
-    // 마이그레이션 리셋(모든 마이그레이션 작업 되돌리기) : php artisan migrate:reset
-    
     /**
      * Run the migrations.
      *
@@ -20,8 +15,11 @@ return new class extends Migration
     {
         Schema::create('boards', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('user_id')->unsigned();
+            $table->char('type', 1);
             $table->string('title', 50);
             $table->string('content', 1000);
+            $table->string('img');
             $table->timestamps();
             $table->softDeletes();
         });
