@@ -20,6 +20,7 @@ class UserSeeder extends Seeder
             ['name' => '홍길동', 'email' => 'admin@admin.com', 'password' => Hash::make('qwer1234!')]
             ,['name' => '갑돌이', 'email' => 'admin2@admin.com', 'password' => Hash::make('qwer1234!')]
             ,['name' => '갑순이', 'email' => 'admin3@admin.com', 'password' => Hash::make('qwer1234!')]
+            ,['name' => '그로밋', 'email' => 'gromit@gromit.com', 'password' => Hash::make('qwer1234!')]
         ]);
     }
 }

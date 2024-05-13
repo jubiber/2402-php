@@ -94,8 +94,8 @@ return [
     | the language folders that are provided through your application.
     |
     */
-
-    'fallback_locale' => 'ko',
+//  로그인 상단 에러부분 ko -> en 수정
+    'fallback_locale' => 'en',
 
     /*
     |--------------------------------------------------------------------------
