@@ -22,8 +22,8 @@ Route::get('/', function () {
 })->name('get.login');
 
 Route::post('/login', [UserController::class, 'login'])->name('post.login');
-Route::get('/logout', [UserController::class, 'logout'])->name('logout');
-
+Route::('/logout', [UserController::class, 'logout'])->name('logout');
+get
 // -----------
 // 게시판 관련
 // -----------
