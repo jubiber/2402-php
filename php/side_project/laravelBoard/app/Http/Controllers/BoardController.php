@@ -55,7 +55,7 @@ class BoardController extends Controller
         $insertData['user_id'] = Auth::id();
         $insertData['img'] = '/img/kuromi.png'; // TODO: 나중에 수정
 
-        $resultInsert = Board::create($insertData);
+        Board::create($insertData);
 
         return redirect()->route('board.index');
     }
@@ -68,10 +68,11 @@ class BoardController extends Controller
      */
     public function show($id)
     {
+        Log::debug('board.store Start');
         // 게시글 정보 획득
         $resultBoardInfo = Board::find($id);
-        $resultBoardInfo->auth_id = Auth::id();
 
+        Log::debug('board info get');
         $responseData = $resultBoardInfo->getOriginal();
         $responseData['auth_id'] = Auth::id();
         Log::debug('json', $responseData);

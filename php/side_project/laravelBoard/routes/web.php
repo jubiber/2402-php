@@ -14,7 +14,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// ---------
+// 유저 관련
+// ---------
 Route::get('/', function () {
     return view('login');
 })->name('get.login');

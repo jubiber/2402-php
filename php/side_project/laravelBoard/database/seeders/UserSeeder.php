@@ -16,12 +16,12 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        // User::factory(5000)->create();
-        $arr = [
-            'name'  => '관리자'
-            ,'email' => 'admin@admin.com'
-            ,'password' => Hash::make('qwer123')
-        ];
-        User::create($arr);
+         User::factory(10)->create();
+        // $arr = [
+        //     'name'  => '관리자'
+        //     ,'email' => 'admin@admin.com'
+        //     ,'password' => Hash::make('qwer123')
+        // ];
+        // User::create($arr);
     }
 }
