@@ -1,8 +1,14 @@
 <?php
 
+use Doctrine\DBAL\Types\StringType;
 use Illuminate\Support\Str;
 
 return [
+    // 'dbal' => [
+    //     'types' => [
+    //         'string' => StringType::class
+    //     ]
+    // ]
 
     /*
     |--------------------------------------------------------------------------

@@ -29,6 +29,7 @@ class BoardFactory extends Factory
             ,'/img/kuromi.jpg'
             ,'/img/mymel.jpg'
             ,'/img/rabit.jpg'
+            ,'/img/rabit2.jpg'
 
         ];
         return [

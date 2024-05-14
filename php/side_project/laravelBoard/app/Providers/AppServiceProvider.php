@@ -21,6 +21,7 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
+    //부팅될 때 자동으로 실행 되도록 해줌.
     public function boot()
     {
         //

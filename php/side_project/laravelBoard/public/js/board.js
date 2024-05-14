@@ -31,6 +31,27 @@ document.querySelectorAll(".my-btn-detail").forEach(item => {
     });
 });
 
+document.querySelector('#my-btn-delete').addEventListener('click', MyDeleteCard);
+
+function MyDeleteCard(e) {
+    const url = '/board/' + e.target.value; // url
+    // Ajax 처리
+    axios.delete(url)
+    .then(response => {
+        if(response.data.errorFlg){
+            // 삭제 이상 발생
+            alert('삭제에 실패 했습니다.')
+        } else
+         {
+            // 정상처리
+            const main = document.querySelector('main');
+            const card = document.querySelector('#card' + response.data.deletedId);
+            main.removeChild(card);
+        }
+    })
+    .catch();
+}
+
 // 삭제 처리 (async)
 // document.querySelector('#my-btn-delete').addEventListener('click', myDeleteCard);
 

@@ -22,8 +22,18 @@ Route::get('/', function () {
 })->name('get.login');
 
 Route::post('/login', [UserController::class, 'login'])->name('post.login');
-Route::('/logout', [UserController::class, 'logout'])->name('logout');
-get
+Route::get('/logout', [UserController::class, 'logout'])->name('logout');
+
+Route::get('/regist', function() {
+    return view('regist');
+})->name('regist.index');
+Route::post('/regist', [UserController::class, 'regist'])->name('regist.store');
+
+
+// [UserController::class, 'register'])->name('register');
+
+// 이메일 체크
+Route::post('/user/chk', [UserController::class, 'emailChk']);
 // -----------
 // 게시판 관련
 // -----------
