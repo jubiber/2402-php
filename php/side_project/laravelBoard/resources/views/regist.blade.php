@@ -25,6 +25,10 @@
       </div>
       @endif
       
+    
+
+
+
       <label for="email" class="form-label">이메일</label>
       <span id="print-chk-email"></span>
       <button id="btn-chk-email" type="button" class="btn btn-success float-end">중복 확인</button>
