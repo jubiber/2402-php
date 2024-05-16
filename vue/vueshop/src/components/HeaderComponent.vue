@@ -1,7 +1,7 @@
 <template>
     <div class="nav">
         <!-- <a href="#">홈</a> -->
-        <a v-for="item in data.navList" :key="item.navItem" herf="#">{{ item.navItem }}</a>
+        <a v-for="item in data.navList" :key="item.navItem" href="#">{{ item.navItem }}</a>
     </div>
 </template>
 
@@ -17,4 +17,6 @@ const data = defineProps({
 </script>
 
 <style>
+
 </style>
+

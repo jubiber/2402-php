@@ -20,7 +20,7 @@
     <!-- 앞에 배열 키랑 뒤에 맨뒤에 키랑 다르다 -->
       <div v-for="(item, key) in products" :key="key">
         <h4 @click="myOpenModal(item)">{{ item.productName }}</h4>
-        <p>{{ item.price }} won</p>
+        <p>{{ item.price}}</p>
       </div>
     <!-- 스크립트에서 선언한거 씀
       <h4 @click="myOpenModal(product[0])">{{ products[0].productName }}</h4>
@@ -70,14 +70,13 @@ const pants = ref('롱스커트');
 console.log(pants);
 
 // reactive: 객체 타입만 사용 가능하며, 해당 객체에 대한 반응어쩌고
-const products = reactive([
-  //배열부분 +
-  // 하나의 객체씩
-  {productName: 'Pants', price: 63000, productContent: '매우 아름다운 바지입니다.', img: require('@/assets/img/pants2.jpg')},
-  {productName: 'T-shirts', price: 27000, productContent: '매우 아름다운 티셔츠입니다.', img: require('@/assets/img/shirts.jpg')},
-  {productName: 'socks', price: 2000, productContent: '매우 아름다운 양말입니다.', img: require('@/assets/img/socks.jpg')},
-]);
 
+const products = reactive([
+  {productName: 'Pants', price: 10000, productContent: '매우 아름다운 바지입니다.', img: require('@/assets/img/pants2.jpg')},
+  {productName: 'T-shirts', price: 10000, productContent: '매우 아름다운 티셔츠입니다.', img: require('@/assets/img/shirts.jpg')},
+  {productName: 'socks', price: 10000, productContent: '매우 아름다운 양말입니다.', img: require('@/assets/img/socks.jpg')},
+
+])
 
 // 모달용 있던부분 ModalDetail로 옮김
 
@@ -85,24 +84,27 @@ const products = reactive([
 // ----------
 // 헤더 처리
 // ----------
+
 const navList = reactive([
   {navItem: 'HOME', },
   {navItem: 'PRODUCT', },
   {navItem: '쥬얼리', },
   {navItem: '가방', },
-  {navItem: '기타', }
-]);
-  
+  {navItem: '기타', },
+])
+
 console.log(products[0].price);
 
 const flgModal = ref(false); // 모달어쩌고
 const product = ref({});
 // const product = reactive({});
+
 function myOpenModal(item) {
   // .value로 접근 해야된다는 사실(?)
   flgModal.value = !flgModal.value;
   product.value = item;
 }
+
 </script>
 
 <style>
