@@ -2,15 +2,15 @@
 
 // 이론
 
-Cookie & Session
+// Cookie & Session
 
-Cookie?
+// Cookie?
 // 1) 클라이언트(로컬)에 저장되는 Key-Value 형태로 들어 있는 데이터 파일 
 // 2) 로컬에 상태 정보 저장해 두었다가 참조하여 사용
 // 3) 사용자가 따로 요청x -> 브라우저가 Request Header에 자동으로 넣어 서버로 전송
 // 4) 쿠키의 유효시간, 전송할 도메인, 경로 등의 정보 가짐
 
-Cookie 발급 과정
+// Cookie 발급 과정
 //Client (기준)
 // 1. Request (요청)
 // 2. Response with Cookie (쿠키로 응답)

@@ -1,3 +1,4 @@
+
 <template>
     <img alt="Vue logo" src="@/assets/img/flower.jpg" style="width: 130px; height: auto; margin-right: 950px; ">
     <!-- 헤더 -->
@@ -15,25 +16,35 @@
     <a href="#">기타</a>
   </div> -->
 
+
+
     <!-- 상품 리스트 -->
-  <div>
-    <!-- 앞에 배열 키랑 뒤에 맨뒤에 키랑 다르다 -->
-      <div v-for="(item, key) in products" :key="key">
-        <h4 @click="myOpenModal(item)">{{ item.productName }}</h4>
-        <p>{{ item.price}}</p>
-      </div>
-    <!-- 스크립트에서 선언한거 씀
-      <h4 @click="myOpenModal(product[0])">{{ products[0].productName }}</h4>
-      <p>{{ products[0].price }} won</p>
-    </div>
+    <BoardList
+    :products="products"
+    @myOpenModal="myOpenModal"
+    >
+    <!-- slot: 자식쪽에서 <slot></slot> 부분에 전달하여 자식컴포넌트에서 렌더링 -->
+      <h3>부모쪽에서 정의한 슬롯</h3>
+    </BoardList>
+    <!-- 상품 리스트, 별도의 컴포넌트로 분리해 주세요 -->
     <div>
-      <h4 @click="flgModal = !flgModal">{{ products[1].productName }}</h4>
-      <p>{{ products[1].price }} won</p>
+        <div v-for="(item, key) in products" :key="key">
+          <h4 @click="myOpenModal(item)">{{ item.productName }}</h4>
+          <p>{{ item.price}}</p>
+        </div>
     </div>
+
     <div>
-      <h4 @click="flgModal = !flgModal">{{ products[2].productName }}</h4>
-      <p>{{ products[2].price }} won</p>
-    </div> -->
+
+    </div>
+ 
+    <!-- 모달 -->
+    <ModalDetail
+    :flgModal="flgModal"
+    :product="product"
+    @myCloseModal="myCloseModal"
+    />
+
 
       <!-- false면 모달 자체가 생성 안됨 -->
   <!-- <div class="bg_black modal-wrapper" v-if="flgModal">
@@ -54,8 +65,10 @@
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue';
+import { provide, ref, reactive } from 'vue';
 import HeaderComponent from './components/HeaderComponent.vue';
+import ModalDetail from './components/ModalDetail.vue';
+import BoardList from './components/BoardList.vue';
 
 // --------------------
 // 데이터 바인딩
@@ -74,9 +87,11 @@ console.log(pants);
 const products = reactive([
   {productName: 'Pants', price: 10000, productContent: '매우 아름다운 바지입니다.', img: require('@/assets/img/pants2.jpg')},
   {productName: 'T-shirts', price: 10000, productContent: '매우 아름다운 티셔츠입니다.', img: require('@/assets/img/shirts.jpg')},
-  {productName: 'socks', price: 10000, productContent: '매우 아름다운 양말입니다.', img: require('@/assets/img/socks.jpg')},
+  {productName: 'socks', price: 1000, productContent: '매우 아름다운 양말입니다.', img: require('@/assets/img/socks.jpg')},
 
 ])
+
+
 
 // 모달용 있던부분 ModalDetail로 옮김
 
@@ -96,15 +111,37 @@ const navList = reactive([
 console.log(products[0].price);
 
 const flgModal = ref(false); // 모달어쩌고
-const product = ref({});
+let product = reactive({});
 // const product = reactive({});
-
+//부모쪽
 function myOpenModal(item) {
   // .value로 접근 해야된다는 사실(?)
-  flgModal.value = !flgModal.value;
-  product.value = item;
+  flgModal.value = true; // !true에 !flgModal.value라고 적어도 됨.
+  product = item;
+}
+//부모쪽
+function myCloseModal(str) {
+  flgModal.value = false; // false부분에 !flgModal.value라고 적오도 됨
+  product = {};
+  console.log(str); // 파라미터 연습용
 }
 
+
+// -----------------------
+// Provide / Inject 연습
+// -----------------------
+const count = ref(0);
+
+
+function addCount() {
+  count.value++;
+}
+
+
+provide('test', {
+  count
+  ,addCount
+});
 </script>
 
 <style>
