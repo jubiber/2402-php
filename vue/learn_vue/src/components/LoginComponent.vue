@@ -15,7 +15,7 @@ import { useStore } from 'vuex';
 const store = useStore();
 
 
-const inputData =reactive({
+const inputData = reactive({
     account: '',
     password: '',
 });

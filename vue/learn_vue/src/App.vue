@@ -39,6 +39,7 @@ function movePath(path) {
 
 
 // 라이프 사이클 테스트용
+// 초기값을 0으로 설정
 const cnt = ref(0);
 
 onBeforeMount(() => {
