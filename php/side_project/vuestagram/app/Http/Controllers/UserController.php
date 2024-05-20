@@ -6,9 +6,8 @@ use MyUserValidate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
+class UserController extends Controller{
 
-class UserController extends Controller
-{
     public function login(Request $request) {
         // (출력할 문자열 파라미터, 배열파라미터)
         Log::debug('Start Login', $request->all());
@@ -19,15 +18,14 @@ class UserController extends Controller
             ,'password' => $request->password
         ];
 
-        //유효성 검사
-        $resultValidator = MyUserValidate::myValidate($requestData);
-        
-        //유효성 검사 실패 처리
-        if($resultValidate->fails()) {
+        // 유효성 검사
+        $resuleValidate = MyUserValidate::myValidate($requestData);
+        // 유효성 검사 실패 처리
+        if($resuleValidate->fails()) {
 
         }
         // response Data
-        $responseData = [
+        $responseData= [
             'code' => '0'
             ,'msg' => '인증 완료'
             ,'accessToken' => 'accessToken'
