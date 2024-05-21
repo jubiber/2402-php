@@ -11,9 +11,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 
+class UserController extends Controller{
 
-class UserController extends Controller
-{
     public function login(Request $request) {
         // (출력할 문자열 파라미터, 배열파라미터)
         Log::debug('Start Login', $request->all());
@@ -24,6 +23,7 @@ class UserController extends Controller
             ,'password' => $request->password
         ];
 
+<<<<<<< HEAD
         //유효성 검사
         $resultValidate = MyUserValidate::myValidate($requestData);
         
@@ -31,6 +31,13 @@ class UserController extends Controller
         if($resultValidate->fails()) {
             Log::debug('login Valridation Error', $resultValidate->errors()->all());
            throw new MyValidateException('E01'); 
+=======
+        // 유효성 검사
+        $resuleValidate = MyUserValidate::myValidate($requestData);
+        // 유효성 검사 실패 처리
+        if($resuleValidate->fails()) {
+
+>>>>>>> 805852210fd17abd08e349e88b705985336c5672
         }
 
         //유저 정보 조회
@@ -57,7 +64,7 @@ class UserController extends Controller
         MyToken::updateRefreshToken($resultUserInfo, $refreshToken);
 
         // response Data
-        $responseData = [
+        $responseData= [
             'code' => '0'
             ,'msg' => '인증 완료'
             ,'accessToken' => $accessToken
