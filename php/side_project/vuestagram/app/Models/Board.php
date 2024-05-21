@@ -31,4 +31,9 @@ class Board extends Model
     {
         return $date->format('Y-m-d H:i:s');
     }
+    public function users() {
+        // 1:다 에서 belongsTo는 다를 의미함
+        return $this->belongsTo(User::class);
+    }
+
 }
