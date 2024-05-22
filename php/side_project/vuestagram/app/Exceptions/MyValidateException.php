@@ -12,7 +12,6 @@ class MyValidateException extends Exception {
     public function context() {
         return [
             'E01' => ['status' => 400, 'msg' => '리퀘스트 데이터 이상'],
-            
         ];
     }
 }
