@@ -28,7 +28,7 @@ class UserController extends Controller{
         
         //유효성 검사 실패 처리
         if($resultValidate->fails()) {
-            Log::debug('login Valridation Error', $resultValidate->errors()->all());
+            Log::debug('login Validation Error', $resultValidate->errors()->all());
            throw new MyValidateException('E01'); 
         }
 
@@ -64,6 +64,29 @@ class UserController extends Controller{
             ,'data' => $resultUserInfo
         ];
         Log::debug('End Login', $responseData);
+        return response()->json($responseData, 200);
+    }
+
+
+    /**
+     * 로그아웃
+     * 
+     * @param use Illuminate\Http\Request $request
+     * 
+     * @return response() json
+     */
+    public function logout(Request $request) {
+        $id = MyToken::getValueInPayLoad($request->bearerToken(), 'idt');
+        // 해당 id의 유저정보를 가져오는 부분
+        $userInfo = User::find($id);
+
+        MyToken::removeRefreshToken($userInfo);
+
+        $responseData = [
+            'code' => '0'
+            ,'msg' => ''
+            ,'data' => $userInfo
+        ];
         return response()->json($responseData, 200);
     }
 }
