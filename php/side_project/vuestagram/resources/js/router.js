@@ -1,6 +1,7 @@
 import { createWebHistory, createRouter } from 'vue-router';
 import LoginComponent from '../components/LoginComponent.vue';
 import BoardComponent from '../components/BoardComponent.vue';
+import BoardCreateComponent from '../components/BoardCreateComponent.vue';
 import store from './store';
 
 function chkAuth(to, from, next) {
@@ -35,7 +36,13 @@ const routes = [
         path: '/Board',
         component: BoardComponent,
         beforeEnter: chkAuth,
-    }
+    },
+    {
+        path: '/create',
+        component: BoardCreateComponent,
+        // chkAuth -> 권한체크
+        beforeEnter: chkAuth,
+    },
 ];
 
 const router = createRouter({

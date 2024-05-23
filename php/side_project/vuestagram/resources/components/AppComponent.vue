@@ -4,7 +4,7 @@
      <div class="header-container">
          <div class="header-content">
              <div class="title">
-                 <router-link to="/"><h1>Vuestagram</h1></router-link>
+                 <router-link to="/board"><h1>Vuestagram</h1></router-link>
              </div>
              <img class="img-logo" src="/logo.png">
              <div class="btn-group">
@@ -23,7 +23,7 @@
     <hr>
     <!-- Main -->
     <main>
-        
+      <UserInfoComponent v-if="$store.state.authFlg" />  
      <div class="container">
        <router-view></router-view>
      </div>
