@@ -49,7 +49,7 @@ class MyToken {
             'alg' => env('TOKEN_ALG')
             ,'typ' => env('TOKEN_TYPE')
         ];
-//json_encode -> 제이슨 형태로 바꿔주는거임
+        //json_encode -> 제이슨 형태로 바꿔주는거임
         return MyEncrypt::base64UrlEncode(json_encode($header));
     }
        /**
@@ -66,10 +66,13 @@ class MyToken {
         // 페이로드 기본 데이터 생성
         $payload = [
             'idt' => $userInfo->id,
+            //토큰 발급 시간 저장
             'iat' => $now,
+            // 토큰 만료 시간 저장 (현재시간 + 유효시간)
             'exp' => $now + $ttl,
+            // 토큰의 유효기간 저장
             'ttl' => $ttl
-       ];
+        ];
        // 엑세스 토큰일 경우 아래 데이터 추가
        if($accessFlg) {
         $payload['acc'] = $userInfo->account;
@@ -85,6 +88,7 @@ class MyToken {
      * @param string $payload base64URL Encode
      * @return string base64Signature
      */
+    // makeSignature 함수 정의: 헤더와 페이로드를 인자로 받음
     private function makeSignature(string $header, string $payload) {
         return MyEncrypt::hashWithSalt(env('TOKEN_ALG')
         , $header.env('TOKEN_SECRET_KEY').$payload

@@ -39,8 +39,11 @@ class MyEncrypt {
     *@return string 암호화 된 문자열
     */
     public function hashWithSalt(string $alg,string $str,string $salt = '') {
+        // 해시 알고리즘(alg)을 사용하여 문자열(str)의 해시 값을 계산하고,
+        // 이를 솔트(salt)와 결합하여 새로운 솔트를 생성
         $salt = hash($alg, $str).$salt;
-
+         // 해시 알고리즘(alg)을 사용하여 문자열(str)의 해시 값을 계산하고,
+         // 새로 생성된 솔트와 결합하여 반환
         return hash($alg, $str).$salt;
     }
 
