@@ -23,3 +23,4 @@ Route::middleware('my.auth')->post('/logout', [UserController::class, 'logout'])
 Route::middleware('my.auth')->get('/board/{id}/list', [BoardController::class, 'index']);
 Route::middleware('my.auth')->get('/board/{id}', [BoardController::class, 'addIndex']);
 Route::middleware('my.auth')->post('/board', [BoardController::class, 'store']);
+// 오케이
