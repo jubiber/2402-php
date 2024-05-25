@@ -4,7 +4,7 @@
      <div class="header-container">
          <div class="header-content">
              <div class="title">
-                 <router-link to="/"><h1>Vuestagram</h1></router-link>
+                 <router-link to="/board"><h1>Vuestagram</h1></router-link>
              </div>
              <img class="img-logo" src="/logo.png">
              <div class="btn-group">
@@ -14,7 +14,7 @@
                <router-link to="/login"><button class="btn btn-header btn-bg-white">가입하기</button></router-link>
               </div>
               <div v-else>
-               <button class="btn btn-header btn-bg-black">로그아웃</button>
+               <button @click="$store.dispatch('logout')" class="btn btn-header btn-bg-black">로그아웃</button>
               </div>
              </div>
          </div>
@@ -23,7 +23,7 @@
     <hr>
     <!-- Main -->
     <main>
-        
+      <UserInfoComponent v-if="$store.state.authFlg" />  
      <div class="container">
        <router-view></router-view>
      </div>
