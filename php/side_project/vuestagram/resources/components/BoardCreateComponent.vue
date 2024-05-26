@@ -11,7 +11,6 @@
 <script setup>
 import { reactive, ref } from 'vue';
 
-//객체 담을거니까 reactive
 const boardInfo = reactive({
     content: '',
     img: null,

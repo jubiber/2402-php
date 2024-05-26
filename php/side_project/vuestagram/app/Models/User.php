@@ -30,18 +30,17 @@ class User extends Authenticatable
     ];
 
     /**
-     * 다른 포멧ㅇ로 바꾸는걸 serialization이라고 한다.
+     * serialization(정해져o): 다른 포멧으로 바꾸는 것
      * The attributes that should be hidden for serialization.
      *
      * @var array<int, string>
      */
-    // 데이터 전달해줄 때 제이슨 형태로 전달해주는데
-    // 제이슨에 자동으로 제외해줄 컬럼들 작성 
+    // 데이터 전달해줄 때 json 형태로 전달해주는데
+    // json에 자동으로 제외해줄 컬럼들 작성 
     protected $hidden = [
         'password',
         'refresh_token',
     ];
-    // serializeDate -> 정해져있는 데이트명
     /**
      * 자동완성??
      */

@@ -81,7 +81,7 @@ const store = createStore({
                 alert('로그인 실패 : ' + errorCode);
             })
         },
-        
+     
         /**
          * 로그아웃 처리
          * 
@@ -112,7 +112,7 @@ const store = createStore({
 
                 router.replace('/logiin');
             });
-        },
+        }
         /**
          * 보드 리스트 정보 획득
          * 

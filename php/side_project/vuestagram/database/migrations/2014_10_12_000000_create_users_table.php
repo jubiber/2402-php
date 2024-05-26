@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('profile', 100)->nullable();
             // null이면 로그인을 하지 않은 유저인거임
             $table->string('refresh_token', 512)->nullable();
-            $table->timestampts();
+            $table->timestamps();
             $table->softDeletes();
     
 
