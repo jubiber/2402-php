@@ -19,7 +19,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    // 업데이트 가능한 컬럼을 지정해줌
+    // '$fiilable' 속성은 대량 할당이 가능한 속성을 지정하는 배열이다.
     protected $fillable = [
         'account', 
         'name',

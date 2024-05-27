@@ -18,21 +18,18 @@ class Board extends Model
 
     ];
 
-    // serializeDate -> 정해져있는 데이트명
-    /**
-     * 자동완성??
-     * 
-     * @param \DateTimeInerface $date
-     * 
-     * @return String('Y-M-D H:i:s')
+     /**
+     * TimeZone format when serializing JSON
+     *
+     * @param \DateTimeInterface $date
+     *
+     * @return String('Y-m-d H:i:s')
      */
-    // 포멧형식 지정
     protected function serializeDate(\DateTimeInterface $date)
     {
         return $date->format('Y-m-d H:i:s');
     }
     public function users() {
-        // 1:다 에서 belongsTo는 다를 의미함
         return $this->belongsTo(User::class);
     }
 

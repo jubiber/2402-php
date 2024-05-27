@@ -10,12 +10,12 @@
                 <div class="btn-group">
                     <!-- false면 로그아웃만 나오게 됨 -->
                  <div v-if="!$store.state.authFlg">
-                  <router-link to="/login"><button class="btn btn-header btn-bg-primary">로그인</button></router-link>
-                  <router-link to="/login"><button class="btn btn-header btn-bg-info">가입하기</button></router-link>
+                  <router-link to="/login"><button class="btn btn-header btn-bg-black">로그인</button></router-link>
+                  <router-link to="/join"><button class="btn btn-header btn-bg-info">가입하기</button></router-link>
                  </div>
                  <div v-else>
-                  <button @click="$store.dispatch('logout')" class="btn btn-header btn-bg-black">로그아웃</button>
-                 </div>
+                     <button @click="$store.dispatch('logout')" class="btn btn-header btn-bg-black">로그아웃</button>
+                </div>
                 </div>
             </div>
         </div>

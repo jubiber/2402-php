@@ -8,7 +8,8 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
 
-
+// Database: Seeding이란? 
+// DB에 초기 데이터 및 테스트용 더미 데이터를 삽입하는 과정
 class Userseeder extends Seeder 
 {
     /**
@@ -21,6 +22,7 @@ class Userseeder extends Seeder
         $data = [
             'account' => 'admin'
             ,'password' => Hash::make('gromit')
+            ,'password_chk' => Hash::make('gromit')
             ,'name' => '그로밋'
             ,'gender' => '0'
             ,'profile' => '/profile/default.png'

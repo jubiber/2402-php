@@ -14,7 +14,7 @@ class MyEncrypt {
      */
     public function base64UrlEncode(string $json) {
         
-        // strtr -> +는 -로 바뀌고 /는 _로 바뀜
+        // strtr -> +는 -로 바뀌고 /는 _로 바뀜 (치환)
         // ==qw+qw/qw 이게 ststr을 거치면
         // ==qw-qw_qw 이렇게 바뀜. 추가설명 이해 몬함
         return rtrim(strtr(base64_encode($json), '+/', '-_'), '=');  

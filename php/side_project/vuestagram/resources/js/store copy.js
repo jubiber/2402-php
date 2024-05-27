@@ -81,7 +81,32 @@ const store = createStore({
                 alert('로그인 실패 : ' + errorCode);
             })
         },
-     
+        /**
+         * 회원가입
+         * 
+         * @param {*} context
+         * @param {*} userInfo
+         */
+        join(context, userInfo) {
+            const url = '/api/join';
+            axios.post(url, JSON.stringify(userInfo))
+            .then(response => {
+                // 회원가입 성공 시 로그인 처리를 할 수 있습니다.
+                localStorage.setItem('accessToken', response.data.accessToken);
+                localStorage.setItem('refreshToken', response.data.refreshToken);
+                localStorage.setItem('userInfo', JSON.stringify(response.data.data));
+
+                // state 갱신
+                context.commit('setAuthFlg', true);
+                context.commit('setUserInfo', response.data.data);
+                router.replace('/board'); //회원가입 후 게시판 페이지로 리디렉션
+            })
+            .catch(error => {
+                console.log(error.response);
+                const errorCode = error.response.data.code ? error.response.data.code : 'E99';
+                alert('회원가입 실패 : ' + errorCode);
+            });
+        }
         /**
          * 로그아웃 처리
          * 

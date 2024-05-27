@@ -26,6 +26,7 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             // 'password' 키에 암호화된 비밀번호를 할당합니다. (이 예시에서는 고정된 해시 값 사용)
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'password_chk' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
             // 'remember_token' 키에 임의의 10자리 문자열을 생성하여 할당합니다.
             'remember_token' => Str::random(10),
         ];

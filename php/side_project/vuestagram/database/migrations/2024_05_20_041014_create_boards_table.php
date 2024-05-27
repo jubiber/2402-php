@@ -20,7 +20,6 @@ return new class extends Migration
             $table->bigInteger('user_id')->unsigned();
             $table->string('content', 200);
             $table->string('img', 100);
-            // 좋아요 숫자 올라가는거
             $table->integer('like')->default(0);
             $table->timestamps();
             $table->softDeletes();
