@@ -125,6 +125,14 @@ class UserController extends Controller {
         Log::debug('End Join', $responseData);
         return response()->json($responseData, 200);
     }
+
+    // 이메일 중복체크
+    public function checkEmail(Request $request)
+    {
+        $emailExists = User::where('email', $request->email)->exists();
+
+        return response()->json(['exists' => $emailExists]);
+    }
     /**
      * 로그아웃
      * 

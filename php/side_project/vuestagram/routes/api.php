@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 // /login 앞에 api: 생략임
 Route::post('/login', [UserController::class, 'login']);
 Route::post('/join', [UserController::class, 'join']);
+Route::post('/check-email', [Usercontroller::class, 'checkEmail']);
 // Route::middleware('my.auth')->post('/logout', [UserController::class, 'logout']);
 // Route::middleware('my.auth')->post('/reissue', [UserController::class, 'reissue']);
 

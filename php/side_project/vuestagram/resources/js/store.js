@@ -139,7 +139,7 @@ const store = createStore({
                 context.commit('setAuthFlg', false);
                 context.commit('setUserInfo', {});
 
-                router.replace('/logiin');
+                router.replace('/login');
             });
         },
         /**
