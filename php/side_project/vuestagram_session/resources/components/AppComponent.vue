@@ -8,6 +8,7 @@
         </div>
         <img class="img-logo" alt="logo" src="/logo.png">
         <div class="btn-group">
+          <!-- authFlg가 false일 때만 이 div를 렌더링합니다. (사용자가 로그인되지 않은 경우) -->
           <div v-if="!$store.state.authFlg">
             <button @click="$router.push('/login')" class="btn btn-header btn-bg-black">로그인</button>
             <button @click="$router.push('/registration')" class="btn btn-header btn-bg-white">가입하기</button>
@@ -23,7 +24,7 @@
 
   <!-- Main -->
   <main>
-    <UserInfoComponent />
+    <UserInfoComponent v-if="$store.state.userInfo"/>
     <div class="container">
       <router-view></router-view>
     </div>
