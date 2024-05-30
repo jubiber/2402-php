@@ -20961,6 +20961,16 @@ __webpack_require__.r(__webpack_exports__);
         store.dispatch('getBoardData');
       }
     });
+    function deleteBoard(id) {
+      store.dispatch('deleteBoard', id).then(function () {
+        // 삭제가 성공한 경우 상세 화면을 닫습니다.
+        closeDetail();
+      })["catch"](function (error) {
+        // 삭제가 실패한 경우
+        console.error('게시물 삭제 실패:', error);
+        alert('게시물 삭제에 실패했습니다.');
+      });
+    }
     var __returned__ = {
       store: store,
       get detailItem() {
@@ -20977,6 +20987,7 @@ __webpack_require__.r(__webpack_exports__);
       },
       openDetail: openDetail,
       closeDetail: closeDetail,
+      deleteBoard: deleteBoard,
       onBeforeMount: vue__WEBPACK_IMPORTED_MODULE_0__.onBeforeMount,
       reactive: vue__WEBPACK_IMPORTED_MODULE_0__.reactive,
       ref: vue__WEBPACK_IMPORTED_MODULE_0__.ref,
@@ -21091,21 +21102,27 @@ var _hoisted_2 = {
 var _hoisted_3 = ["src"];
 var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr", null, null, -1 /* HOISTED */);
 var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr", null, null, -1 /* HOISTED */);
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "작성자 : 홍길동", -1 /* HOISTED */);
-var _hoisted_7 = {
+var _hoisted_6 = {
+  "class": "etc-box"
+};
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "작성자 : 홍길동", -1 /* HOISTED */);
+var _hoisted_8 = {
   "class": "board-list-box"
 };
-var _hoisted_8 = ["onClick"];
-var _hoisted_9 = ["src"];
+var _hoisted_9 = ["onClick"];
+var _hoisted_10 = ["src"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" 상세 "), $setup.detailFlg ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     src: $setup.detailItem.img
-  }, null, 8 /* PROPS */, _hoisted_3), _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.detailItem.content), 1 /* TEXT */), _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    "class": "etc-box"
-  }, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  }, null, 8 /* PROPS */, _hoisted_3), _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.detailItem.content), 1 /* TEXT */), _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    onClick: _cache[0] || (_cache[0] = function ($event) {
+      return _ctx.$store.dispatch('deleteBoard', $setup.detailItem.id);
+    }),
+    "class": "btn btn-close btn-bg-black move-right"
+  }, "삭제"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     onClick: $setup.closeDetail,
     "class": "btn btn-bg-black btn-close"
-  }, "닫기")])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" 리스트 "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.$store.state.boardData, function (item, key) {
+  }, "닫기")])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" 리스트 "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.$store.state.boardData, function (item, key) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
       onClick: function onClick($event) {
         return $setup.openDetail(item);
@@ -21114,10 +21131,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       "class": "item"
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
       src: item.img
-    }, null, 8 /* PROPS */, _hoisted_9)], 8 /* PROPS */, _hoisted_8);
+    }, null, 8 /* PROPS */, _hoisted_10)], 8 /* PROPS */, _hoisted_9);
   }), 128 /* KEYED_FRAGMENT */))]), _ctx.$store.state.moreBoardFlg ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", {
     key: 1,
-    onClick: _cache[0] || (_cache[0] = function ($event) {
+    onClick: _cache[1] || (_cache[1] = function ($event) {
       return _ctx.$store.dispatch('getMoreBoardData');
     }),
     "class": "btn btn-bg-black btn-more",
@@ -21467,24 +21484,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
 /* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./router */ "./resources/js/router.js");
-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 
 
 var store = (0,vuex__WEBPACK_IMPORTED_MODULE_1__.createStore)({
   state: function state() {
     return {
+      // 'authFlg'는 'auth=' 쿠키가 있는지 여부를 확인하여 true 또는 false 값을 가집니다.
       authFlg: document.cookie.indexOf('auth=') >= 0 ? true : false,
+      // 'userInfo'는 로컬 스토리지에 저장된 'userInfo' 값을 JSON으로 파싱하여 가져오며, 없으면 null을 가집니다. 
       userInfo: localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null,
+      // 'boardData'는 게시판 데이터를 저장할 배열입니다.
       boardData: [],
+      // 'moerBoardFlg'는 더 많은 게시판 데이터를 로드할 수 있는지 여부를 나타내는 플래그이다. 기본값은 true입니다.
       moreBoardFlg: true
     };
   },
-  mutations: {
+  mutations: _defineProperty(_defineProperty(_defineProperty({
     // 인증 플레그 저장
     setAuthFlg: function setAuthFlg(state, flg) {
       state.authFlg = flg;
@@ -21493,60 +21512,56 @@ var store = (0,vuex__WEBPACK_IMPORTED_MODULE_1__.createStore)({
     setUserInfo: function setUserInfo(state, userInfo) {
       state.userInfo = userInfo;
     },
-    // 게시글 초기삽입
+    // 게시글 초기 삽입
     setBoardData: function setBoardData(state, data) {
       state.boardData = data;
     },
     // 더보기 버튼 플래그
     setMoreBoardFlg: function setMoreBoardFlg(state, flg) {
       state.moreBoardFlg = flg;
-    },
-    // 게시글 추가
-    setMoreBoardData: function setMoreBoardData(state, data) {
-      state.boardData = [].concat(_toConsumableArray(state.boardData), _toConsumableArray(data));
-    },
-    // 작성 게시글을  가장 앞에 추가
-    setUnshiftBoardData: function setUnshiftBoardData(state, data) {
-      state.boardData.unshift(data);
-    },
-    // 유저 작성글 수 + 1
-    setAddUserBoardsCount: function setAddUserBoardsCount(state) {
-      state.userInfo.boards_count++;
-      localStorage.setItem('userInfo', state.userInfo);
     }
-  },
+  }, "setMoreBoardFlg", function setMoreBoardFlg(state, flg) {
+    state.moreBoardFlg = flg;
+  }), "setMoreBoardData", function setMoreBoardData(state, data) {
+    state.boardData.unshift(data);
+  }), "setAddUserBoardCount", function setAddUserBoardCount(state) {
+    state.userInfo.boards_count++;
+    localStorage.setItem('userInfo', state.userInfo);
+  }),
   actions: {
     /**
      * 로그인 처리
      * 
-     * @param {store} context 
+     * @param {store} context
      */
     login: function login(context) {
       var url = '/api/login';
       var form = document.querySelector('#loginForm');
       var data = new FormData(form);
-      axios.post(url, data).then(function (response) {
-        console.log(response.data); // TODO
-        localStorage.setItem('userInfo', JSON.stringify(response.data.data));
+      axios.post(url, data)
+      // 요청 성공 시
+      .then(function (response) {
+        console.log(response.data); // 응답 데이터 출력
+        localStorage.setItem('userInfo', JSON.stringify(response.data.data)); // 응답으로 받은 사용자 정보를 로컬 스토리지에 저장
         context.commit('setUserInfo', response.data.data);
         context.commit('setAuthFlg', true);
-        _router__WEBPACK_IMPORTED_MODULE_0__["default"].replace('/board');
+        _router__WEBPACK_IMPORTED_MODULE_0__["default"].replace('/board'); // 게시판 페이지로 이동
       })["catch"](function (error) {
-        console.log(error.response); // TODO
+        console.log(error.response);
         alert('로그인에 실패했습니다. (' + error.response.data.code + ')');
       });
     },
     /**
      * 로그아웃
-     * @param {*} context 
+     * @param {*} context
      */
     logout: function logout(context) {
       var url = '/api/logout';
       axios.post(url).then(function (response) {
-        console.log(response.data); // TODO
+        console.log(response.data);
       })["catch"](function (error) {
-        console.log(error.response); // TODO
-        alert('문제가 발생해 강제 로그아웃합니다. (' + error.reponse.data + ')');
+        console.log(error.response);
+        alert('문제가 발생해 강제 로그아웃합니다. (' + error.response.data + ')');
       })["finally"](function () {
         localStorage.clear();
         context.commit('setAuthFlg', false);
@@ -21556,46 +21571,46 @@ var store = (0,vuex__WEBPACK_IMPORTED_MODULE_1__.createStore)({
     },
     /**
      * 최초 게시글 획득
-     * @param {*} context 
+     * @param {*} context
      */
     getBoardData: function getBoardData(context) {
       var url = '/api/board';
       axios.get(url).then(function (response) {
-        console.log(response.data); // TODO
+        console.log(response.data);
         context.commit('setBoardData', response.data.data);
       })["catch"](function (error) {
-        console.log(error.response); // TODO
+        console.log(error.response);
         alert('게시글 습득에 실패했습니다. (' + error.response.data.code + ')');
       });
     },
     /**
      * 추가 게시글 획득
-     * @param {*} context 
+     * 
+     * @param {*} context
      */
     getMoreBoardData: function getMoreBoardData(context) {
       var lastItem = context.state.boardData[context.state.boardData.length - 1];
-      var url = '/api/board/' + lastItem.id;
+      var url = '/api/board' + lastItem.id;
       axios.get(url).then(function (response) {
-        console.log(response.data); //TODO
+        console.log(response.data);
         context.commit('setMoreBoardData', response.data.data);
-
         // 더보기 버튼 플래그 갱신
         if (response.data.data.length < 20) {
           context.commit('setMoreBoardFlg', false);
         }
       })["catch"](function (error) {
-        console.log(error.response); //TODO
+        console.log(error.response);
         alert('추가 게시글 획득에 실패했습니다. (' + error.response.data.code + ')');
       });
     },
     registration: function registration(context) {
       var url = '/api/registration';
-      var data = new FormData(document.querySelector('#registrationForm'));
+      var data = new FormData(documtne.querySelector('#registrationForm'));
       axios.post(url, data).then(function (response) {
-        console.log(response.data); // TODO
+        console.log(response.data);
         _router__WEBPACK_IMPORTED_MODULE_0__["default"].replace('/login');
       })["catch"](function (error) {
-        console.log(error.response.data); // TODO
+        console.log(error.response.data);
         alert('회원가입에 실패했습니다. (' + error.response.data.code + ')');
       });
     },
@@ -21608,8 +21623,18 @@ var store = (0,vuex__WEBPACK_IMPORTED_MODULE_1__.createStore)({
         context.commit('setAddUserBoardsCount');
         _router__WEBPACK_IMPORTED_MODULE_0__["default"].replace('/board');
       })["catch"](function (error) {
-        console.log(error.response.data); // TODO
+        console.log(error.response.data);
         alert('글 작성에 실패했습니다. (' + error.response.data.code + ')');
+      });
+    },
+    // 삭제 메서드 추가
+    deleteBoard: function deleteBoard(context, id) {
+      var url = "/api/board".concat(id); //삭제할 게시물의 ID를 포함한 URL
+      axios["delete"](url).then(function (response) {
+        console.log(response.data); // 성공 응답 데이터 출력
+      })["catch"](function (error) {
+        console.error(error.response); // 에러 응답 데이터 출력
+        alert('게시물 삭제에 실패했습니다.(' + error.response.data.code + ')');
       });
     }
   }
@@ -21638,7 +21663,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_css_common_css__WEBPACK_IMPORTED_MODULE_1__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -21665,7 +21690,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_css_boardList_css__WEBPACK_IMPORTED_MODULE_1__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.move-right {\r\n  margin-left: 350px; /* 원하는 만큼의 픽셀 값으로 조정하세요 */\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -21692,7 +21717,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_css_userInfo_css__WEBPACK_IMPORTED_MODULE_1__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -21716,7 +21741,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/* BoardList */\n.board-list-box {\n    display: grid;\n    grid-template-columns: repeat(2, minmax(100px, 1fr));\n    gap: 5px;\n}\n.board-list-box > .item {\n    display: flex;\n    align-items: center;\n    background-color: #000;\n    min-width: 100px;\n    min-height: 150px;\n}\n.board-list-box > .item > img {\n    width: 100%;\n}\n\n/* BoardDetail */\n.board-detail-box {\n    position: fixed;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    top: 0;\n    left: 0;\n    background-color: rgba(0, 0, 0, 0.7);\n    width: 100vw;\n    height: 100vh;\n}\n.board-detail-box > .item {\n    width: 70vw;\n    max-width: 700px;\n    background-color: #fff;\n    padding: 10px;\n}\n.board-detail-box > .item > img {\n    width: 100%;\n}\n.board-detail-box > .item > .etc-box {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "/* BoardList */\r\n.board-list-box {\r\n    display: grid;\r\n    grid-template-columns: repeat(2, minmax(100px, 1fr));\r\n    gap: 5px;\r\n}\r\n.board-list-box > .item {\r\n    display: flex;\r\n    align-items: center;\r\n    background-color: #000;\r\n    min-width: 100px;\r\n    min-height: 150px;\r\n}\r\n.board-list-box > .item > img {\r\n    width: 100%;\r\n}\r\n\r\n/* BoardDetail */\r\n.board-detail-box {\r\n    position: fixed;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    top: 0;\r\n    left: 0;\r\n    background-color: rgba(0, 0, 0, 0.7);\r\n    width: 100vw;\r\n    height: 100vh;\r\n}\r\n.board-detail-box > .item {\r\n    width: 70vw;\r\n    max-width: 700px;\r\n    background-color: #fff;\r\n    padding: 10px;\r\n}\r\n.board-detail-box > .item > img {\r\n    width: 100%;\r\n}\r\n.board-detail-box > .item > .etc-box {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -21740,7 +21765,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "* {\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\n\nbody {\n    padding: 10px 10px;\n    max-width: 800px;\n    margin: auto;\n    -ms-overflow-style: none;\n}\n\n::-webkit-scrollbar {\n    display: none;\n}\n\nhr {\n    margin: 10px 0;\n}\n\nh1 {\n    font-size: 1.5rem;\n}\n\n/* a Tag */\na {\n    text-decoration: none;\n    color: #000;\n}\na:hover {\n    font-weight: 900;\n}\n\n/* Button */\n.btn-group {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    gap: 10px;\n}\n\n.btn {\n    border-radius: 15px;\n    font-size: 1rem;\n    height: 40px;\n    line-height: 40px;\n    border: none;\n    text-decoration: none;\n    cursor: pointer;\n    text-align: center;\n}\n.btn:hover {\n    font-weight: 900;\n}\n.btn-header {\n    width: 80px;\n}\n.btn-close {\n    width: 60px;\n}\n.btn-more {\n    margin-top: 20px;\n    width: 100%;\n}\n.btn-bg-black {\n    color: #fff;\n    background-color: #000;\n}\n.btn-bg-white {\n    color: #000;\n    background-color: #fff;\n}\n\n/* Form */\n.form-box {\n    display: grid;\n    grid-template-columns: 1fr;\n    gap: 10px;\n    place-items: center;\n    margin: 20px auto;\n    width: 300px;\n    border: 1px solid #c5c5c5;\n    padding: 0 20px 20px;\n}\n.form-box > * {\n    width: 80%;\n    margin: 5px;\n}\n.form-box > input:not([type=\"file\"]) {\n    height: 40px;\n    background-color: #f0f0f0;\n    border-radius: 5px;\n    border: 1px solid #c5c5c5;\n    padding: 0 10px;\n}\n.form-title {\n    font-size: 2rem;\n    font-weight: 900;\n    margin: 20px;\n    text-align: center;\n}\ntextarea {\n    width: 100%;\n    height: 160px;\n    border: none;\n    resize: none;\n    padding: 5px;\n}\ntextarea:focus {\n    outline: none;\n    border: 1px solid #c5c5c5;\n    border-radius: 10px;\n}\n.radio-box {\n    display: flex;\n    justify-content: space-around;\n}\n.radio-box label {\n    margin-right: 5px;\n}\n\n/* Header */\nheader {\n    padding: 0 20px;\n}\n.title {\n    display: flex;\n    align-items: center;\n}\n.eader-container{\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100%;\n    max-width: 1000px;\n    padding: 10px 20px;\n}\n.header-content {\n    display: flex;\n    justify-content: space-between;\n}\n\n.img-logo {\n    width: 50px;\n    height: 50px;\n}\n\n/* main */\n/* .container {\n    display: flex;\n    justify-content: center;\n} */\n\n/* Footer */\nfooter {\n    margin-top: 50px;\n    text-align: center;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "* {\r\n    margin: 0;\r\n    padding: 0;\r\n    box-sizing: border-box;\r\n}\r\n\r\nbody {\r\n    padding: 10px 10px;\r\n    max-width: 800px;\r\n    margin: auto;\r\n    -ms-overflow-style: none;\r\n}\r\n\r\n::-webkit-scrollbar {\r\n    display: none;\r\n}\r\n\r\nhr {\r\n    margin: 10px 0;\r\n}\r\n\r\nh1 {\r\n    font-size: 1.5rem;\r\n}\r\n\r\n/* a Tag */\r\na {\r\n    text-decoration: none;\r\n    color: #000;\r\n}\r\na:hover {\r\n    font-weight: 900;\r\n}\r\n\r\n/* Button */\r\n.btn-group {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    gap: 10px;\r\n}\r\n\r\n.btn {\r\n    border-radius: 15px;\r\n    font-size: 1rem;\r\n    height: 40px;\r\n    line-height: 40px;\r\n    border: none;\r\n    text-decoration: none;\r\n    cursor: pointer;\r\n    text-align: center;\r\n}\r\n.btn:hover {\r\n    font-weight: 900;\r\n}\r\n.btn-header {\r\n    width: 80px;\r\n}\r\n.btn-close {\r\n    width: 60px;\r\n}\r\n.btn-more {\r\n    margin-top: 20px;\r\n    width: 100%;\r\n}\r\n.btn-bg-black {\r\n    color: #fff;\r\n    background-color: #000;\r\n}\r\n.btn-bg-white {\r\n    color: #000;\r\n    background-color: #fff;\r\n}\r\n\r\n/* Form */\r\n.form-box {\r\n    display: grid;\r\n    grid-template-columns: 1fr;\r\n    gap: 10px;\r\n    place-items: center;\r\n    margin: 20px auto;\r\n    width: 300px;\r\n    border: 1px solid #c5c5c5;\r\n    padding: 0 20px 20px;\r\n}\r\n.form-box > * {\r\n    width: 80%;\r\n    margin: 5px;\r\n}\r\n.form-box > input:not([type=\"file\"]) {\r\n    height: 40px;\r\n    background-color: #f0f0f0;\r\n    border-radius: 5px;\r\n    border: 1px solid #c5c5c5;\r\n    padding: 0 10px;\r\n}\r\n.form-title {\r\n    font-size: 2rem;\r\n    font-weight: 900;\r\n    margin: 20px;\r\n    text-align: center;\r\n}\r\ntextarea {\r\n    width: 100%;\r\n    height: 160px;\r\n    border: none;\r\n    resize: none;\r\n    padding: 5px;\r\n}\r\ntextarea:focus {\r\n    outline: none;\r\n    border: 1px solid #c5c5c5;\r\n    border-radius: 10px;\r\n}\r\n.radio-box {\r\n    display: flex;\r\n    justify-content: space-around;\r\n}\r\n.radio-box label {\r\n    margin-right: 5px;\r\n}\r\n\r\n/* Header */\r\nheader {\r\n    padding: 0 20px;\r\n}\r\n.title {\r\n    display: flex;\r\n    align-items: center;\r\n}\r\n.eader-container{\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n    width: 100%;\r\n    max-width: 1000px;\r\n    padding: 10px 20px;\r\n}\r\n.header-content {\r\n    display: flex;\r\n    justify-content: space-between;\r\n}\r\n\r\n.img-logo {\r\n    width: 50px;\r\n    height: 50px;\r\n}\r\n\r\n/* main */\r\n/* .container {\r\n    display: flex;\r\n    justify-content: center;\r\n} */\r\n\r\n/* Footer */\r\nfooter {\r\n    margin-top: 50px;\r\n    text-align: center;\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

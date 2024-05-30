@@ -14,6 +14,7 @@
           <hr>
           <div class="etc-box">
             <span>작성자 : {{ boardData.name }}</span>
+            
             <button @click="modalFlg = false" class="btn btn-close btn-bg-black">닫기</button>
           </div>
         </div>
@@ -82,4 +83,7 @@ function boardScrollEvent() {
 
 <style>
 @import url('../css/boardList.css');
+
+
+
 </style>

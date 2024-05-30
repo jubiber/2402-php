@@ -8,6 +8,7 @@
       <hr>
       <div class="etc-box">
         <span>작성자 : 홍길동</span>
+        <button @click="$store.dispatch('deleteBoard', detailItem.id )" class="btn btn-close btn-bg-black move-right">삭제</button>
         <button @click="closeDetail"class="btn btn-bg-black btn-close">닫기</button>
       </div>
     </div>
@@ -45,8 +46,26 @@ onBeforeMount(() => {
   if(store.state.boardData.length < 1) {
     store.dispatch('getBoardData');
   } 
-}) 
+})
+
+function deleteBoard(id) {
+  store.dispatch('deleteBoard', id)
+  .then(() => {
+    // 삭제가 성공한 경우 상세 화면을 닫습니다.
+    closeDetail();
+  })
+  .catch(error => {
+    // 삭제가 실패한 경우
+    console.error('게시물 삭제 실패:', error);
+    alert('게시물 삭제에 실패했습니다.');
+  });
+}
+
+
 </script>
 <style>
 @import url('../css/boardList.css');
+.move-right {
+  margin-left: 350px; /* 원하는 만큼의 픽셀 값으로 조정하세요 */
+}
 </style>

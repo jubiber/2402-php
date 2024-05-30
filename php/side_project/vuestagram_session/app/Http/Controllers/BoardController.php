@@ -90,4 +90,24 @@ class BoardController extends Controller
        return response()->json($responseData, 200);
 
     }
+    // 작성게시물 삭제
+    public function destroy($id)
+    {
+        Log::debug('삭제 처리 '.$id);
+        // 게시물 찾기
+        $board = Board::find($id);
+
+        // 게시물 삭제
+        $board->delete();
+
+        // 삭제 후 리다이렉트
+       // 레스폰스 처리
+       $responseData = [
+        'code' => '0'
+        ,'msg' => '글 삭제 완료'
+        ,'data' => $board->toArray()
+       ];
+       
+       return response()->json($responseData, 200);
+    }
 }

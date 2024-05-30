@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
+            $table->rememberToken(); // 100자 길이의 문자열로 설정됨
+            $table->timestamps(); // created_at와 updated_at이라는 2개의 timestamp 컬럼을 추가하는 데 사용됨. 
         });
     }
 

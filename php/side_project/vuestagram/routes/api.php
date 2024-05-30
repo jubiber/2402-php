@@ -37,6 +37,7 @@ Route::middleware('my.auth')->group(function() {
     Route::get('/board/{id}/list', [BoardController::class, 'index']);
     Route::get('/board/{id}', [BoardController::class, 'addIndex']);
     Route::post('/board', [BoardController::class, 'store']);
+    
 });
 
 
