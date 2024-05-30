@@ -59,20 +59,20 @@ const store = createStore({
          * @param {*} context
          * @param {*} userInfo
         */
-        login(context, userInfo) {
-            const url = '/api/login';
+        login(context, userInfo) { // 로그인 액션 정의, context는 Vuex store와 통신하기 위한 객체, userInfo -> 로그인 정보를 담은 객체
+            const url = '/api/login'; 
             axios.post(url, JSON.stringify(userInfo))
-            .then(response => {
+            .then(response => { // 요청이 성공했을 때 실행되는 콜백 함수
                 // console.log(response.data);
                 localStorage.setItem('accessToken', response.data.accessToken);
                 //access refreshToken은 사라지지x때문에 Stroage에 저장해줌.
                 localStorage.setItem('refreshToken', response.data.refreshToken);
-                localStorage.setItem('userInfo', JSON.stringify(response.data.data));
+                localStorage.setItem('userInfo', JSON.stringify(response.data.data)); // localStorage에 사용자 정보 저장
 
 
-                // state 갱신
-                context.commit('setAuthFlg', true);
-                context.commit('setUserInfo', response.data.data);
+                // 상태 갱신
+                context.commit('setAuthFlg', true); // 사용자가 로그인되었음을 상태에 반영합니다.
+                context.commit('setUserInfo', response.data.data); // 사용자 정보를 상태에 저장합니다.
                 router.replace('/board');
             })
             .catch(error => {
