@@ -6,7 +6,7 @@
         <div class="title">
           <router-link to="/"><h1>Vuestagram</h1></router-link>
         </div>
-        <img class="img-logo" alt="logo" src="/logo.png">
+        <img class="img-logo" alt="logo" src="/img/gromit2.jpg">
         <div class="btn-group">
           <!-- authFlg가 false일 때만 이 div를 렌더링합니다. (사용자가 로그인되지 않은 경우) -->
           <div v-if="!$store.state.authFlg">

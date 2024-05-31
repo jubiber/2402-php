@@ -21031,7 +21031,7 @@ var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   "class": "img-logo",
   alt: "logo",
-  src: "/logo.png"
+  src: "/img/gromit2.jpg"
 }, null, -1 /* HOISTED */);
 var _hoisted_6 = {
   "class": "btn-group"
@@ -21178,13 +21178,13 @@ var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   accept: "image/*"
 }, null, -1 /* HOISTED */);
 function render(_ctx, _cache) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("form", _hoisted_1, [_hoisted_2, _hoisted_3, _hoisted_4, _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("form", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" 글 작성 폼 제목 "), _hoisted_2, _hoisted_3, _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" 이미지 파일을 선택하는 입력 요소, 파일 선택 시 setFile 함수 호출 "), _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" 작성 버튼, 클릭 시 Vuex 스토어의 boardStore 액션을 디스패치 "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     onClick: _cache[0] || (_cache[0] = function ($event) {
       return _ctx.$store.dispatch('boardStore');
     }),
     type: "button",
     "class": "btn btn-submit btn-bg-black"
-  }, "작성"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  }, "작성"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" 취소 버튼, 클릭 시 이전 페이지로 이동 "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     onClick: _cache[1] || (_cache[1] = function ($event) {
       return _ctx.$router.back();
     }),
@@ -21522,9 +21522,9 @@ var store = (0,vuex__WEBPACK_IMPORTED_MODULE_1__.createStore)({
     }
   }, "setMoreBoardFlg", function setMoreBoardFlg(state, flg) {
     state.moreBoardFlg = flg;
-  }), "setMoreBoardData", function setMoreBoardData(state, data) {
+  }), "setUnshiftBoardData", function setUnshiftBoardData(state, data) {
     state.boardData.unshift(data);
-  }), "setAddUserBoardCount", function setAddUserBoardCount(state) {
+  }), "setAddUserBoardsCount", function setAddUserBoardsCount(state) {
     state.userInfo.boards_count++;
     localStorage.setItem('userInfo', state.userInfo);
   }),
@@ -21617,7 +21617,7 @@ var store = (0,vuex__WEBPACK_IMPORTED_MODULE_1__.createStore)({
     // 게시글 작성
     boardStore: function boardStore(context) {
       var url = '/api/board';
-      var data = new FormData(document, querySelector('#boardCreateForm'));
+      var data = new FormData(document.querySelector('#boardCreateForm'));
       axios.post(url, data).then(function (response) {
         context.commit('setUnshiftBoardData', response.data.data);
         context.commit('setAddUserBoardsCount');
@@ -21629,7 +21629,7 @@ var store = (0,vuex__WEBPACK_IMPORTED_MODULE_1__.createStore)({
     },
     // 삭제 메서드 추가
     deleteBoard: function deleteBoard(context, id) {
-      var url = "/api/board".concat(id); //삭제할 게시물의 ID를 포함한 URL
+      var url = "/api/board/".concat(id); //삭제할 게시물의 ID를 포함한 URL
       axios["delete"](url).then(function (response) {
         console.log(response.data); // 성공 응답 데이터 출력
       })["catch"](function (error) {

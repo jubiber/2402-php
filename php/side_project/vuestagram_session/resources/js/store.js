@@ -37,11 +37,11 @@ const store = createStore({
             state.moreBoardFlg = flg;
         },
         // 작성 게시글을 가장 앞에 추가
-        setMoreBoardData(state, data) {
+        setUnshiftBoardData(state, data) {
             state.boardData.unshift(data);
         },
         // 유저 작성글 수 + 1
-        setAddUserBoardCount(state) {
+        setAddUserBoardsCount(state) {
             state.userInfo.boards_count++;
             localStorage.setItem('userInfo', state.userInfo);
         },
@@ -155,7 +155,7 @@ const store = createStore({
         // 게시글 작성
         boardStore(context) {
             const url = '/api/board';
-            const data = new FormData(document,querySelector('#boardCreateForm'));
+            const data = new FormData(document.querySelector('#boardCreateForm'));
 
             axios.post(url, data)
             .then(response => {
@@ -170,10 +170,11 @@ const store = createStore({
         },
         // 삭제 메서드 추가
         deleteBoard(context, id) {
-            const url = `/api/board${id}`; //삭제할 게시물의 ID를 포함한 URL
+            const url = `/api/board/${id}`; //삭제할 게시물의 ID를 포함한 URL
             axios.delete(url)
             .then(response => {
                 console.log(response.data) // 성공 응답 데이터 출력
+                
             })
             .catch(error => {
                 console.error(error.response); // 에러 응답 데이터 출력

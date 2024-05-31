@@ -65,7 +65,7 @@ class UserController extends Controller
                 // 경로,도메인: null이면 기본 경로가 설정됨
                 // 쿠키의 보안설정 -> false 면 HTTPS가 아닌 HTTP에서도 쿠키가 전송됨
                 // HTTP 전용 설정 -> false 면 JavaScript에서도 쿠키에 접근할 수 있다.
-                ->cookie('auth', '1', -1, null, null, false, false);
+                ->cookie('auth', '1', 120, null, null, false, false);
     }
 
     public function logout() {

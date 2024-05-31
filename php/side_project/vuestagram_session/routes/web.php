@@ -32,3 +32,5 @@ Route::middleware('auth')->get('/board', [BoardController::class, 'store']);
 Route::middleware('auth')->post('/api/board', [BoardController::class, 'store']);
 //삭제버튼 추가
 Route::delete('/api/board/{id}', [BoardController::class, 'destroy'])->name('board.destroy');
+
+
