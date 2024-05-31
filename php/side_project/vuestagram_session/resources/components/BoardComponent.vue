@@ -8,7 +8,7 @@
       <hr>
       <div class="etc-box">
         <span>작성자 : 홍길동</span>
-        <button @click="$store.dispatch('deleteBoard', detailItem.id )" class="btn btn-close btn-bg-black move-right">삭제</button>
+        <button @click="$store.dispatch('deleteBoard', detailItem.id ); detailFlg = false;" class="btn btn-close btn-bg-black move-right">삭제</button>
         <button @click="closeDetail"class="btn btn-bg-black btn-close">닫기</button>
       </div>
     </div>

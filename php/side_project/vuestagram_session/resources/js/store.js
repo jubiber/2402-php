@@ -45,6 +45,9 @@ const store = createStore({
             state.userInfo.boards_count++;
             localStorage.setItem('userInfo', state.userInfo);
         },
+        setSpliceBoardData(state, key) {
+            state.boardData.splice(key, 1);
+        },
     },
     actions: {
         /**
@@ -173,8 +176,14 @@ const store = createStore({
             const url = `/api/board/${id}`; //삭제할 게시물의 ID를 포함한 URL
             axios.delete(url)
             .then(response => {
-                console.log(response.data) // 성공 응답 데이터 출력
-                
+                console.log('삭제된 데이터', response.data); // 성공 응답 데이터 출력
+                console.log('보드데이터', context.state.boardData);
+                context.state.boardData.forEach((item, key) => {
+                    if(item.id == id) {
+                        context.commit('setSpliceBoardData', key);
+                        return;
+                    }
+                });  
             })
             .catch(error => {
                 console.error(error.response); // 에러 응답 데이터 출력

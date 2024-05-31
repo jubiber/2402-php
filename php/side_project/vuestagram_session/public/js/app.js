@@ -21116,7 +21116,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     src: $setup.detailItem.img
   }, null, 8 /* PROPS */, _hoisted_3), _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.detailItem.content), 1 /* TEXT */), _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     onClick: _cache[0] || (_cache[0] = function ($event) {
-      return _ctx.$store.dispatch('deleteBoard', $setup.detailItem.id);
+      _ctx.$store.dispatch('deleteBoard', $setup.detailItem.id);
+      $setup.detailFlg = false;
     }),
     "class": "btn btn-close btn-bg-black move-right"
   }, "삭제"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
@@ -21503,7 +21504,7 @@ var store = (0,vuex__WEBPACK_IMPORTED_MODULE_1__.createStore)({
       moreBoardFlg: true
     };
   },
-  mutations: _defineProperty(_defineProperty(_defineProperty({
+  mutations: _defineProperty(_defineProperty(_defineProperty(_defineProperty({
     // 인증 플레그 저장
     setAuthFlg: function setAuthFlg(state, flg) {
       state.authFlg = flg;
@@ -21527,6 +21528,8 @@ var store = (0,vuex__WEBPACK_IMPORTED_MODULE_1__.createStore)({
   }), "setAddUserBoardsCount", function setAddUserBoardsCount(state) {
     state.userInfo.boards_count++;
     localStorage.setItem('userInfo', state.userInfo);
+  }), "setSpliceBoardData", function setSpliceBoardData(state, key) {
+    state.boardData.splice(key, 1);
   }),
   actions: {
     /**
@@ -21631,7 +21634,14 @@ var store = (0,vuex__WEBPACK_IMPORTED_MODULE_1__.createStore)({
     deleteBoard: function deleteBoard(context, id) {
       var url = "/api/board/".concat(id); //삭제할 게시물의 ID를 포함한 URL
       axios["delete"](url).then(function (response) {
-        console.log(response.data); // 성공 응답 데이터 출력
+        console.log('삭제된 데이터', response.data); // 성공 응답 데이터 출력
+        console.log('보드데이터', context.state.boardData);
+        context.state.boardData.forEach(function (item, key) {
+          if (item.id == id) {
+            context.commit('setSpliceBoardData', key);
+            return;
+          }
+        });
       })["catch"](function (error) {
         console.error(error.response); // 에러 응답 데이터 출력
         alert('게시물 삭제에 실패했습니다.(' + error.response.data.code + ')');
