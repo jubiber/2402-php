@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/app.css">
 </head>
 <body>
+    <form action="{{ route('login)}}" method="POST">
     <div class="Login">
         <h2>로그인</h2>
         <div class="form-box">
@@ -19,7 +20,8 @@
         </div>
         <input type="checkbox">로그인 정보 저장
         <button type="submit" class="btn">로그인</button>
-        <a href="join.html">회원가입</a>
+        <a href="{{ route('join') }}">회원가입</a>
     </div>
+    </form>
 </body>
 </html>

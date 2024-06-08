@@ -15,4 +15,7 @@ class UserController extends Controller
     function header() {
         return view('header');
     }
+    function Board() {
+        return view('Board');
+    }
 }

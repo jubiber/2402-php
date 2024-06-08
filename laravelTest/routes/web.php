@@ -31,8 +31,7 @@ Route::get('/hi', function () {
 Route::get('/Login', [UserController::class, 'Login'])->name('login');
 Route::get('/join', [UserController::class, 'join'])->name('join');
 Route::get('/header', [UserController::class, 'header'])->name('header');
-Route::resource('/board', BoardController::class);
-
+Route::post('/board', [BoardController::class, 'board'])->name('board');
 // 블레이드 템플릿
 // Route::get('/', function () {
 //     return view('Login.Login')->with('name', '홍길동');
