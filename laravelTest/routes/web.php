@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\BoardController;
+use App\Http\Controllers\UserController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,8 +23,20 @@ Route::get('/', function () {
 // ---------------
 // 라우터 정의
 // ---------------
+Route::get('/hi', function () {
+    return '안녕하세요';
+})->name('hi');
 
+//로그인
+Route::get('/Login', [UserController::class, 'Login'])->name('login');
+Route::get('/join', [UserController::class, 'join'])->name('join');
+Route::get('/header', [UserController::class, 'header'])->name('header');
+Route::resource('/board', BoardController::class);
 
+// 블레이드 템플릿
+// Route::get('/', function () {
+//     return view('Login.Login')->with('name', '홍길동');
+// })
 
 
 
