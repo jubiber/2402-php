@@ -9,13 +9,11 @@ class UserController extends Controller
     function Login() {
         return view('Login');
     }
-    function Join() {
-        return view('Join');
+    function register() {
+        return view('register');
     }
     function header() {
         return view('header');
     }
-    function Board() {
-        return view('Board');
-    }
+    
 }
