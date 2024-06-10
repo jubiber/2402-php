@@ -1,86 +1,112 @@
+<!-- resources/views/board.blade.php -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>자유게시판</title>
-  <link rel="stylesheet" href="../css/board.css">
-  <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .container {
-      width: 90%;
-      max-width: 800px;
-      margin-top: 20px;
-    }
-
-    .post-list {
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .post-item {
-      background-color: white;
-      padding: 20px;
-      margin-bottom: 10px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .post-item h2 {
-      margin: 0 0 10px 0;
-    }
-
-    .post-item p {
-      margin: 0;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자유게시판</title>
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <style>
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .header .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #343a40;
+            text-decoration: none;
+        }
+        .header .nav-links a {
+            margin-left: 20px;
+            color: #343a40;
+            text-decoration: none;
+        }
+        .posts-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+        .post {
+            width: 30%;
+            margin: 1%;
+            padding: 15px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            background-color: #ffffff;
+        }
+        .post img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        @media (max-width: 768px) {
+            .post {
+                width: 45%;
+            }
+        }
+        @media (max-width: 576px) {
+            .post {
+                width: 100%;
+            }
+        }
+        .form-container {
+            padding: 20px;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h2>자유게시판</h2>
-  </header>
-  <div class="container">
-    <ul class="post-list" id="posts-container">
-      <!-- 게시글들이 여기에 추가됩니다 -->
-    </ul>
-  </div>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      // JSON 데이터로부터 게시글 목록을 가져옵니다.
-      const posts = [
-        { title: "첫 번째 글", content: "이것은 첫 번째 게시글의 내용입니다." },
-        { title: "두 번째 글", content: "이것은 두 번째 게시글의 내용입니다." },
-        { title: "세 번째 글", content: "이것은 세 번째 게시글의 내용입니다." }
-      ];
-
-      const container = document.getElementById("posts-container");
-
-      posts.forEach(post => {
-        const postItem = document.createElement("li");
-        postItem.className = "post-item";
-
-        const postTitle = document.createElement("h2");
-        postTitle.textContent = post.title;
-
-        const postContent = document.createElement("p");
-        postContent.textContent = post.content;
-
-        postItem.appendChild(postTitle);
-        postItem.appendChild(postContent);
-        container.appendChild(postItem);
-      });
-    });
-  </script>
+    <header class="header">
+        <div class="logo">
+            <a href="{{ route('board') }}">로고</a>
+        </div>
+        <div class="nav-links">
+            <a href="{{ route('profile') }}">내 정보</a>
+            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">로그아웃</a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+        </div>
+    </header>
+    <main>
+        <div class="form-container">
+            <form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div>
+                    <label for="title">제목</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                <div>
+                    <label for="content">내용</label>
+                    <textarea id="content" name="content" required></textarea>
+                </div>
+                <div>
+                    <label for="image">이미지</label>
+                    <input type="file" id="image" name="image">
+                </div>
+                <button type="submit">게시</button>
+            </form>
+        </div>
+        <div class="posts-container">
+            @foreach($posts as $post)
+                <div class="post">
+                    <h3>{{ $post->title }}</h3>
+                    @if($post->image)
+                        <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}">
+                    @endif
+                    <p>{{ $post->content }}</p>
+                </div>
+            @endforeach
+        </div>
+    </main>
 </body>
 </html>

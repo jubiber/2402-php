@@ -52,4 +52,12 @@ Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 Route::get('/create', [PostController::class, 'create'])->name('posts.create');
 
 
+Route::get('/board', [BoardController::class, 'index'])->name('board');
+Route::post('/board', [BoardController::class, 'store'])->name('posts.store');
+Route::get('/profile', [UserController::class, 'profile'])->name('profile');
+Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+
+
+
+
 

@@ -8,15 +8,16 @@
 </head>
 <body>
     <form action="{{ route('login')}}" method="POST">
+    @csrf
     <div class="Login">
         <h2>로그인</h2>
         <div class="form-box">
-            <label for="">아이디</label>
-            <input type="text" placeholder="ID">
+            <label for="email">아이디</label>
+            <input type="text" name="email" placeholder="ID" required>
         </div>
         <div class="form-box">
-            <label for="">비밀번호</label>
-            <input type="password" id="password"s placeholder="Password">
+            <label for="password">비밀번호</label>
+            <input type="password" id="password"s placeholder="Password" required>
         </div>
         <input type="checkbox">로그인 정보 저장
         <button type="submit" class="btn">로그인</button>
