@@ -18,26 +18,15 @@ class PostController extends Controller
         return view('posts.create');
     }
 
-    public function store(Request $request)
+    public function store(
+        
+    )
     {
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'content' => 'required|string',
-        ]);
-
-        Post::create([
-            'title' => $request->title,
-            'content' => $request->content,
-            'user_id' => Auth::id(),
-        ]);
-
-        return redirect()->route('posts.index');
     }
 
     public function index()
     {
-        $posts = Post::with('user')->latest()->get();
-        return view('posts.index', compact('posts'));
+    
     }
 }
 

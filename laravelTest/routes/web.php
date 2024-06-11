@@ -29,8 +29,10 @@ Route::get('/hi', function () {
 })->name('hi');
 
 //로그인
-Route::get('/Login', [UserController::class, 'Login'])->name('login');
-Route::post('/login', [UserController::class, 'login'])->name('login');
+Route::get('/login', [UserController::class, 'login'])->name('get.login');
+Route::post('/login', [UserController::class, 'login'])->name('post.login');
+//로그아웃
+Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
 Route::get('/register', [UserController::class, 'register'])->name('register');
 Route::get('/header', [UserController::class, 'header'])->name('header');

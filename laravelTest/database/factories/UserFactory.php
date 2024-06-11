@@ -23,7 +23,7 @@ class UserFactory extends Factory
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
-            'password' => Hash::make('crong!'),
+            'password' => Hash::make('qwer1234!'),
             'created_at' => $date,
             'updated_at' => $date
             

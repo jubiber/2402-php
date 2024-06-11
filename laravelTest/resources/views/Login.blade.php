@@ -7,21 +7,24 @@
     <link rel="stylesheet" href="../css/app.css">
 </head>
 <body>
-    <form action="{{ route('login')}}" method="POST">
+    <form action="{{ route('login.post')}}" method="POST">
     @csrf
     <div class="Login">
         <h2>로그인</h2>
         <div class="form-box">
             <label for="email">아이디</label>
-            <input type="text" name="email" placeholder="ID" required>
+            <input type="text" id="email" name="email" placeholder="ID">
         </div>
         <div class="form-box">
             <label for="password">비밀번호</label>
-            <input type="password" id="password"s placeholder="Password" required>
+            <input type="password" id="password" name="password" placeholder="Password" 
+            minlength="8" maxlength="16"
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}"
+            title="비밀번호는 8~16자 길이이며, 최소 하나의 대문자, 소문자, 숫자 및 특수 문자를 포함해야 합니다." required>
         </div>
-        <input type="checkbox">로그인 정보 저장
+        <input type="checkbox" class="login_store">로그인 정보 저장
         <button type="submit" class="btn">로그인</button>
-        <a href="{{ route('register') }}">회원가입</a>
+        <a href="{{ route('register') }}" class="register-link">회원가입</a>
     </div>
     </form>
 </body>

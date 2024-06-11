@@ -1,0 +1,8 @@
+ul {
+    list-style: none;
+}
+/* CSS 파일에 추가할 스타일 */
+.logo {
+    width: 200px; /* 원하는 가로 크기로 조절 */
+    height: auto; /* 가로 크기에 따라 자동으로 세로 크기 조절 */
+}

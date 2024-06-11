@@ -16,7 +16,8 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('password_chk');
             $table->rememberToken();
-            $table->timestamps(); // 기본 제공되는 timestamps 메서드를 사용합니다.
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 
