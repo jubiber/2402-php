@@ -35,8 +35,10 @@ Route::post('/login', [UserController::class, 'login'])->name('login.post');
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
 // 회원가입 - agree
-Route::get('/register_agree', [UserController::class, 'showRegisterationForm-1'])->name('register_agree.get');
+// routes/web.php
+Route::get('/register_agree', [UserController::class, 'agreeForm'])->name('register_agree.get');
 Route::post('/register_agree', [UserController::class, 'register_agree'])->name('register_agree.post');
+
 // 회원가입 - 개인정보 입력
 Route::get('/register', [UserController::class, 'showRegisterationForm'])->name('register.get');
 Route::post('/register', [UserController::class, 'register'])->name('register.post');
