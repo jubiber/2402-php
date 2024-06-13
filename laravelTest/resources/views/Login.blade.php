@@ -24,7 +24,7 @@
         </div>
         <input type="checkbox" class="login_store">로그인 정보 저장
         <button type="submit" class="btn">로그인</button>
-        <a href="{{ route('register') }}" class="register-link">회원가입</a>
+        <a href="{{ route('register.get') }}" class="register-link">회원가입</a>
     </div>
     </form>
 </body>

@@ -28,13 +28,19 @@ Route::get('/hi', function () {
     return '안녕하세요';
 })->name('hi');
 
-//로그인
-Route::get('/login', [UserController::class, 'login'])->name('get.login');
-Route::post('/login', [UserController::class, 'login'])->name('post.login');
-//로그아웃
+// 로그인
+Route::get('/login', [UserController::class, 'showLoginForm'])->name('login.get');
+Route::post('/login', [UserController::class, 'login'])->name('login.post');
+// 로그아웃
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
-Route::get('/register', [UserController::class, 'register'])->name('register');
+// 회원가입 - agree
+Route::get('/register_agree', [UserController::class, 'showRegisterationForm-1'])->name('register_agree.get');
+Route::post('/register_agree', [UserController::class, 'register_agree'])->name('register_agree.post');
+// 회원가입 - 개인정보 입력
+Route::get('/register', [UserController::class, 'showRegisterationForm'])->name('register.get');
+Route::post('/register', [UserController::class, 'register'])->name('register.post');
+
 Route::get('/header', [UserController::class, 'header'])->name('header');
 
 Route::get('/board', [BoardController::class, 'board'])->name('board');
