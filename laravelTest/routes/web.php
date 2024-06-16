@@ -62,8 +62,14 @@ Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 Route::get('/create', [PostController::class, 'create'])->name('posts.create');
 
 
-Route::get('/board', [BoardController::class, 'index'])->name('board');
-Route::post('/board', [BoardController::class, 'store'])->name('posts.store');
+Route::get('/board_free', [BoardController::class, 'index'])->name('board_free');
+Route::post('/board_free', [BoardController::class, 'store'])->name('board_free.store');
+
+Route::get('/board_inquiry', [BoardController::class, 'index'])->name('board_inquiry');
+Route::post('/board_inquiry', [BoardController::class, 'store'])->name('board_inquiry.store');
+
+Route::get('/board_question', [BoardController::class, 'index'])->name('board_question');
+Route::post('/board_question', [BoardController::class, 'store'])->name('board_question.store');
 Route::get('/profile', [UserController::class, 'profile'])->name('profile');
 Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 

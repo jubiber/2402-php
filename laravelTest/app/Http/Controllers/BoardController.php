@@ -10,7 +10,7 @@ class BoardController extends Controller
     public function board(Request $request)
     {
         // 요청 처리 로직 작성
-        return view('board'); // 예시로 board.blade.php 뷰를 반환
+        return view('board_free'); // 예시로 board.blade.php 뷰를 반환
     }
     public function write(Request $request)
     {
@@ -21,7 +21,10 @@ class BoardController extends Controller
     public function index()
     {
         $posts = Post::all();
-        return view('board', compact('posts'));
+        return view('board_free', compact('posts'));
+
+        $posts2 = Post::latest()->paginate(10); // 최신순으로 정렬하여 10개씩 페이징 처리
+        return view('board_inquiry', compact('posts2'));
     }
    
 
@@ -47,7 +50,7 @@ class BoardController extends Controller
             'image' => $imagePath
         ]);
 
-        return redirect()->route('board');
+        return redirect()->route('board_free');
     }
 
     public function show($id){
