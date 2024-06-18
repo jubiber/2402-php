@@ -19,6 +19,7 @@ class UserController extends Controller
     // 로그인 처리
     public function login(Request $request)
     {
+    // email, password -> Login.blade.php의 input 태그의 name 속성
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
@@ -52,6 +53,7 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|unique:users|max:255',
             'password' => 'required|string|min:8|confirmed',
+            'password_chk' => 'required|string|min:8|confirmed',
             'address' => 'required|string|max:255',
             'phone' => 'required|string|max:20',
             'nickname' => 'required|string|max:255|unique:users',

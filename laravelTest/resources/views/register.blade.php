@@ -13,21 +13,21 @@
            <div class="join_final_content">
                <div class="join-box">
                    <label for="" class="custom-label">이름</label>
-                   <input type="" class="join_input_content_unique" placeholder="이름을 입력해주세요." required>
+                   <input type="" name="name" class="join_input_content_unique" placeholder="이름을 입력해주세요." required>
                </div>
                <div class="join-box">
                        <label for="user_id" class="custom-label">아이디</label>
                        <input type="text" id="user_id" class="join_input_content_unique id-property" placeholder="아이디를 입력해주세요." required>
-                       <button type="button" class="double-chk">중복확인</button>
+                       <button type="button" name="email" class="double-chk">중복확인</button>
                </div>
                <div class="join-box">
                    <label for="password" class="custom-label">비밀번호</label>
-                   <input type="password" id="password" class="join_input_content_unique" placeholder="비밀번호를 입력해주세요." required>
+                   <input type="password" name="password" id="password" class="join_input_content_unique" placeholder="비밀번호를 입력해주세요." required>
                    
                </div>
                <div class="join-box">
                    <label for="confirm_password" class="custom-label">비밀번호확인</label>
-                   <input type="password" id="confirm_password" class="join_input_content_unique" placeholder="비밀번호를 확인주세요." required>
+                   <input type="password"name="passwotd_chk" id="confirm_password" class="join_input_content_unique" placeholder="비밀번호를 확인주세요." required>
                </div>
                <div class="join-box">
                    <span id="error_message" class="error">비밀번호가 일치하지 않습니다.</span>
@@ -43,7 +43,7 @@
                    </div>
                </div>
                <div class="join-box">
-                   <label for="" class="custom-label">휴대전화</label>
+                   <label for="" name="phone" class="custom-label">휴대전화</label>
                    <select id="phone-code" class="phone-code">
                        <option value="010">010</option>
                        <option value="011">011</option>
@@ -56,7 +56,7 @@
                <div class="join-box">
                    <label for="" class="custom-label">닉네임</label>
                    <input type="" class="join_input_content_unique nickname" placeholder="닉네임을 확인해주세요." required>
-                   <button type="button" class="double-chk">중복확인</button>
+                   <button type="button" name="nickname" class="double-chk">중복확인</button>
                </div>
            </div>
            <div class="page-btn">
