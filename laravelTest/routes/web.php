@@ -17,9 +17,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+// Notion -> laravel -> Blade Template
+Route::get('/', function() {
+   $arr =[
+    'name' => '홍길동'
+    ,'age' => 130
+    ,'gender' => '1'
+   ];
+   return view('layout')->with('data', $arr);
 });
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // ---------------
 // 라우터 정의
