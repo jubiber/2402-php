@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BoardController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\TestController;
 use App\Http\Controllers\UserController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -39,6 +40,10 @@ Route::get('/hi', function () {
     return '안녕하세요';
 })->name('hi');
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
 // 로그인
 Route::get('/login', [UserController::class, 'showLoginForm'])->name('login.get');
 Route::post('/login', [UserController::class, 'login'])->name('login.post');
@@ -65,6 +70,7 @@ Route::get('/write', [BoardController::class, 'write'])->name('write');
 //     return view('Login.Login')->with('name', '홍길동');
 // })
 
+Route::get('/test', [TestController::class, 'index']);
 
 Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
 Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
