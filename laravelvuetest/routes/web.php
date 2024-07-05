@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\RecommendController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//------------------------------ 주은혜 ----------------------------------
+Route::get('/api/recommend/season', [RecommendController::class, 'getSeason']);
+
+// ------------------------------ 끝 -----------------------------------
