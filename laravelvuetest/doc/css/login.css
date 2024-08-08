@@ -1,0 +1,56 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    /* width: 50%;
+    height: 50%; */
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 35px;
+}
+.login {
+    margin-bottom: 10px;
+}
+.flex-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 200px;
+}
+.carrot {
+    width: 30px;
+}
+.login-order {
+    margin-left: 5px;
+    font-size: 22px;
+    font-weight: 800;
+}
+.text {
+    color: orange;
+}
+input {
+    height: 30px;
+    width: 350px;
+}
+.btn {
+    padding-top: 10px;
+    text-align: center;
+}
+.btn-gradient {
+   background-color: rgb(255, 200, 152);
+   width: 176px;
+   height: 35px;
+   border: none;
+   padding: 5px;
+   border-radius: 4px;
+}
+.btn-gradient a {
+    text-decoration: none;
+    color: black;
+}

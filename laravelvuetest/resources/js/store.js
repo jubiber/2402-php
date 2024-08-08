@@ -13,7 +13,7 @@ const store = createStore({
           // ---------------------- 주은혜 ----------------------------
           setSeasonRecommendInfo(state, data) {
             state.seasonRecommendInfo = data;
-        }
+        },
         //-----------------------끝-------------------------------
     },
     actions: {
