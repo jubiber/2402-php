@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 html, body {
     height: 100%;
     margin: 0;
@@ -53,4 +54,208 @@ input {
 .btn-gradient a {
     text-decoration: none;
     color: black;
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+a {
+    text-decoration: none;
+    color: #888;
+}
+a:hover {
+    text-decoration: underline;
+}
+header {
+    margin: auto;
+    width: 1080px;
+    height: 215px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+fieldset {
+    border: none;
+}
+
+.visually-hidden {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
+}
+.links {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.link_text {
+    font-size: 10px;
+    margin-left: 5px;
+}
+.img_logo {
+    margin-bottom: 12px;
+    width: 220px;
+    height: 65px;
+}
+.search_box {
+    width: 520px;
+    height: 50px;
+    border: 2px solid #03cf5d;
+    display: flex;
+    align-items: center;
+}
+.search_box input {
+    flex: 9;
+    height: 46px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+}
+.search_box button {
+    flex: 1;
+    height: 46px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    background-color: #03cf5d;
+    color: #ffffff;
+}
+/* nav */
+header > nav {
+    width: 100%;
+    height: 45px;
+    position: absolute;
+    bottom: 0;
+}
+.nav_itmes {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+    font-weight: bold;
+    border-top: 1px solid #f1f3f6;
+}
+.nav_itmes ul > li {
+    display: inline-block;
+    margin-left: 8px;
+}
+.nav_itmes ul > li:nth-child(-n + 7) > a {
+    color: #03cf5d;
+}
+.nav_itmes ul > li > a {
+    text-decoration: none;
+    cursor: pointer;
+}
+main {
+    background: #f2f4f7;
+    min-height: 700px;
+}
+footer {
+    background-color: darkgray;
+    height: 310px;
+}
+
+/* footer css */
+ul {
+    margin: 0;
+    padding: 0;
+}
+footer {
+    width: 1080px;
+    height: 310px;
+    margin: auto;
+    padding: 0 8px 0 8px;
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+}
+.notice_box {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f1f3f6;
+}
+
+.notice_box a {
+    font-weight: bold;
+    color: black;
+}
+.aside_box {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #f1f3f6;
+}
+
+.area_user {
+    flex: 4;
+    line-height: 2em;
+}
+
+.area_user_row {
+    display: flex;
+}
+
+.area_user_row ul {
+    flex: 6;
+}
+
+.aur_title {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.area_user_row ul > li {
+    display: inline-block;
+    margin-left: 8px;
+}
+.area_col {
+    flex: 1;
+    display: flex;
+}
+.area_col .ac_content {
+    line-height: 20px;
+}
+.area_col .ac_img {
+    width: 60px;
+    height: 60px;
+}
+
+.bottom_box {
+    flex: 3;
+    padding-top: 20px;
+    font-size: 14px;
+}
+.bottom_box ul > li {
+    display: inline-block;
+    margin-left: 8px;
+}
+.bottom_box ul > li:last-child {
+    font-weight: bold;
+}
+
+.color_naver {
+    color: #03cf5d;
+}
+.text_bold013 {
+    font-weight: bold;
+    font-size: 13px;
+}
+
+/* 재사용 클래스 */
+.search_box {
+    color: #03cf5d;
+>>>>>>> 04a06aa7aaee8a3d00ed6ea744e0dd3f68cf4e33
 }
