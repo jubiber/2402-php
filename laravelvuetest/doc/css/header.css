@@ -17,3 +17,15 @@
     height: 30px;
     width: 350px;
 }
+.en {
+    width: 100px;
+    height: 30px;
+}
+.en a {
+    text-decoration: none;
+    color: black;
+}
+.ko a {
+    text-decoration: none;
+    color: black;
+}
